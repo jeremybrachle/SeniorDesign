@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title text-center>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div text-center style="margin: auto; border-style: solid; 
+        padding-top: 5%; padding-bottom: 5%; margin-bottom: 5%;">
+    <h4>Logo</h4>
+  </div>
+
+  <div class = "loginInfo">
+    <ion-item class="loginItem" id="username">
+      <ion-label>Username:</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item class="loginItem" id="password">
+      <ion-label>Password:</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item><br><br>
+
+    <div text-center>
+      <ion-button size="large" style="width:50%;" [routerLink]="['/home']">Login</ion-button><br>
+      <ion-button size="large" style="width:50%" [routerLink]="['/home']">Sign Up</ion-button>
+      <br><br><br>
+
+      <button style="background-color: white; border:none; text-decoration:underline">Forgot password?</button><br>
+    </div>
+
+  </div>
+</ion-content>

@@ -1,18 +1,32 @@
 <app-heading></app-heading>
 
 <ion-content padding class="has-header">
-  <br>
+<br>
 <!-- logo -->
-<div text-center style="margin: auto; border-style: solid; 
-    padding-top: 5%; padding-bottom: 5%; margin-bottom: 5%;">
-      <h4>Platinum Motorcars</h4>
-</div>
+<ion-img src="../../../assets/images/logo.png"></ion-img>
+<br>
 
-  
+
 
 <div text-center>
-  <p>Welcome to Platinum Motors!</p>
-    <br><br>
+
+    <p style="font-size: 0.8em;">Want to drive one of these cars tonight?</p>
+
+
+  <ion-slides pager="true">
+    <ion-slide>
+        <ion-img src="../../../assets/images/vantage.png"></ion-img>
+    </ion-slide>
+    <ion-slide>
+        <ion-img src="../../../assets/images/lambo.png"></ion-img>
+    </ion-slide>
+    <ion-slide>
+        <ion-img src="../../../assets/images/ferrari.png"></ion-img>
+    </ion-slide>
+  </ion-slides>
+
+
+
   <p>Click <a>here</a> to begin</p>
     <br><br>
   <ion-button [routerLink]="['/login']">Log Out</ion-button>
@@ -20,3 +34,4 @@
 </div>
   
 </ion-content>
+

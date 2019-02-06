@@ -22,3 +22,4 @@ import { HeadingComponent } from '../../heading/heading.component';
   declarations: [HomePage, HeadingComponent]
 })
 export class HomePageModule {}
+

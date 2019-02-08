@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div text-center>
+        Create Account
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  
+
+ <div class = "createAccountInfo">
+   <!-- first name -->
+   <ion-item class="createAccountItem" id="firstName">
+     <ion-label> First Name: </ion-label>
+     <ion-input type="text" placeholder="Farts" required></ion-input>
+   </ion-item>
+
+   <!-- last name -->
+   <ion-item class="createAccountItem" id="lastName">
+      <ion-label> Last Name: </ion-label>
+      <ion-input type="text" placeholder="McCool" required></ion-input>
+    </ion-item>
+
+    <!-- Date of Birth -->
+    <ion-item class="createAccountItem" id="dob">
+        <ion-label> DOB: </ion-label>
+        <ion-input type="text" required></ion-input>
+      </ion-item>
+    
+    <!-- Credit Card info -->
+    <ion-item class="createAccountItem" id="creditCardNum">
+      <ion-label> Credit Card #: </ion-label>
+      <ion-input type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item class="createAccountItem" id="creditCardExpDate">
+      <ion-label> Credit Card Expiration: </ion-label>
+      <ion-input type="text" required></ion-input>
+    </ion-item>
+
+     <!-- billing address -->
+     <ion-item class="createAccountItem" id="billingAddress">
+        <ion-label> Billing Address: </ion-label>
+        <ion-input type="text" required></ion-input>
+    </ion-item>
+
+    <!-- driver license # -->
+    <ion-item class="createAccountItem" id="dlNum">
+        <ion-label> Driver's License #: </ion-label>
+        <ion-input type="text" required></ion-input>
+    </ion-item>
+
+    <!-- Insurance contact num -->
+    <ion-item class="createAccountItem" id="insurancePhoneNum">
+        <ion-label> Insurance Phone #: </ion-label>
+        <ion-input type="text" required></ion-input>
+    </ion-item>
+
+    <!-- Insurance Company -->
+    <ion-item class="createAccountItem" id="insuranceComp">
+        <ion-label> Insurance Provider: </ion-label>
+        <ion-input type="text" required></ion-input>
+    </ion-item>
+
+    <!-- Insurance expiration -->
+    <ion-item class="createAccountItem" id="insuranceExp">
+        <ion-label> Insurance Expiration: </ion-label>
+        <ion-input type="text" required></ion-input>
+    </ion-item>
+ </div>
+  <br>
+  <div text-center>
+    <ion-button [routerLink]="['/home']">Create Account</ion-button>
+  </div>
+
+
+<!-- sign in with facebook -->
+  <br> <br>
+  <div class="fbLogo"> 
+    <ion-icon name="logo-facebook"></ion-icon>
+  </div>
+  <button type="button" class="signinInitialStep_fbButton signinForm__cta button button-large button-facebook">
+    Sign up with Facebook
+  </button>
+
+  <div class="googleLogo"> 
+    <ion-icon name="logo-google"></ion-icon>
+  </div>
+  <button type="button" class="signinInitialStep_googleButton signinForm__cta button button-large button-google">
+    Sign up with Google
+  </button>
+
+</ion-content>

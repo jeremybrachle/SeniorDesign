@@ -1,0 +1,78 @@
+
+.button-facebook{
+    background-color: #3b5998;
+    color: white;
+    text-indent: 2%;
+    width: 100%;
+    font-size: 1em;
+    line-height: 1em;
+    padding-right: 1em;
+    padding-top: 1.7em;
+    padding-bottom: 1.7em;
+    padding-left: 2em;
+    display: inline-block;
+    position: relative;
+    margin-top: .52em;
+    border-radius: .1em;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.fbLogo{
+    padding-top: .2em;
+    margin-top: .175em;
+    background: #3b5998;
+    color: white;
+    zoom: 3.0;
+    float: left;
+    position: absolute;
+    z-index: 1;
+}
+
+.button-google{
+    background-color: #db3236;
+    color: white;
+    text-indent: 2%;
+    width: 100%;
+    font-size: 1em;
+    line-height: 1em;
+    padding-right: 1em;
+    padding-top: 1.7em;
+    padding-bottom: 1.7em;
+    padding-left: 2em;
+    display: inline-block;
+    position: relative;
+    margin-top: .52em;
+    border-radius: .1em;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.googleLogo{
+    padding-top: .2em;
+    margin-top: .175em;
+    background: #db3236;
+    color: white;
+    zoom: 3.0;
+    float: left;
+    position: absolute;
+    z-index: 1;
+}
+
+
+// .googleLogin{
+//     color: #db3236;
+//     padding-left: 5%;
+// }
+// .googleText{
+//     color: black;
+//     padding-left: 3%;
+// }
+.socialMediaSection{
+    padding-top: 5%;
+    font-size: 100%;
+    color: gray;
+}
+

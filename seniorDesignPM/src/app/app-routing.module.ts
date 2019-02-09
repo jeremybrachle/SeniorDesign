@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'login', loadChildren: '../app/pages/login/login.module#LoginPageModule' },
   { path: 'booking', loadChildren: '../app/pages/booking/booking.module#BookingPageModule' },
   { path: 'create-account', loadChildren: '../app/pages/create-account/create-account.module#CreateAccountPageModule' },  { path: 'booking-info-modal', loadChildren: './pages/Modals/booking-info-modal/booking-info-modal.module#BookingInfoModalPageModule' },
+  { path: 'book-now-modal', loadChildren: './pages/Modals/book-now-modal/book-now-modal.module#BookNowModalPageModule' },
 
   
 ];

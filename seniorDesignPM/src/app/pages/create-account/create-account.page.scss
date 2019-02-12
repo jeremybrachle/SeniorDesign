@@ -1,3 +1,10 @@
+// Needs latest Compass, add '@import "compass"' to your scss
+// Permalink - use to edit and share this gradient:
+// http://colorzilla.com/gradient-editor/#4285f4+25,db4437+25,db4437+50,db4437+50,0f9d58+50,0f9d58+75,f4b400+76
+// background-color: #4285f4; // Old browsers
+// @include filter-gradient(#4285f4, #f4b400, horizontal); // IE6-9
+// @include background-image(linear-gradient(left, #4285f4 25%,#db4437 25%,#db4437 50%,#db4437 50%,#0f9d58 50%,#0f9d58 75%,#f4b400 76%));
+
 
 .button-facebook{
     background-color: #3b5998;
@@ -31,7 +38,7 @@
 }
 
 .button-google{
-    background-color: #db3236;
+    background-image: linear-gradient(to right, #db4437 0%,#db4437 25%,#4285f4 25%,#4285f4 50%,#0f9d58 50%,#0f9d58 75%,#f4b400 75%);    // background-color: #db3236;
     color: white;
     text-indent: 2%;
     width: 100%;
@@ -53,7 +60,7 @@
 .googleLogo{
     padding-top: .2em;
     margin-top: .175em;
-    background: #db3236;
+    background: #db4437;
     color: white;
     zoom: 3.0;
     float: left;
@@ -61,15 +68,6 @@
     z-index: 1;
 }
 
-
-// .googleLogin{
-//     color: #db3236;
-//     padding-left: 5%;
-// }
-// .googleText{
-//     color: black;
-//     padding-left: 3%;
-// }
 .socialMediaSection{
     padding-top: 5%;
     font-size: 100%;

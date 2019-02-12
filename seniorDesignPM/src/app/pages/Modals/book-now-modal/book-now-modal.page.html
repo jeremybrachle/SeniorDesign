@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Booking Details
+      <span (click)="dismiss()" style="color:blue">Cancel</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label position="stacked">Pickup Location</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Drop-off Location</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Pick-up Date/Time</ion-label>
+    <ion-input type="date"></ion-input>
+    <ion-input type="time"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Pick-up Date/Time</ion-label>
+    <ion-input type="date"></ion-input>
+    <ion-input type="time"></ion-input>
+  </ion-item>
+
+  <div text-center>
+    <ion-button>Confirm</ion-button>
+  </div>
+</ion-content>

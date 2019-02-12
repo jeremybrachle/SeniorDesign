@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { BookingInfoModalPage } from '../Modals/booking-info-modal/booking-info-modal.page';
+import { BookNowModalPage } from '../Modals/book-now-modal/book-now-modal.page';
 
 @Component({
   selector: 'app-booking',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookingPage implements OnInit {
 
-  constructor() { }
+  constructor(public modalController: ModalController) { }
 
   ngOnInit() {
+  }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: BookingInfoModalPage
+    });
+
+    await modal.present();
+  }
+
+  async bookNow() {
+    const modal = await this.modalController.create({
+      component: BookNowModalPage
+    });
+
+    await modal.present();
   }
 
 }

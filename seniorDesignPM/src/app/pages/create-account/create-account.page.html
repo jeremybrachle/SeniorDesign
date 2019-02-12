@@ -11,67 +11,65 @@
 <ion-content>
 
 
-  
-
  <div class = "createAccountInfo">
    <!-- first name -->
-   <ion-item class="createAccountItem" id="firstName">
-     <ion-label> First Name: </ion-label>
-     <ion-input type="text" placeholder="Farts" required></ion-input>
-   </ion-item>
+  <ion-item class="createAccountItem" id="firstName">
+    <ion-label> First Name: </ion-label>
+    <ion-input type="text" placeholder="Benny" maxlength="15" required></ion-input>
+  </ion-item>
 
    <!-- last name -->
-   <ion-item class="createAccountItem" id="lastName">
-      <ion-label> Last Name: </ion-label>
-      <ion-input type="text" placeholder="McCool" required></ion-input>
-    </ion-item>
+  <ion-item class="createAccountItem" id="lastName">
+    <ion-label> Last Name: </ion-label>
+    <ion-input type="text" placeholder="Black" maxlength="20" required></ion-input>
+  </ion-item>
 
     <!-- Date of Birth -->
-    <ion-item class="createAccountItem" id="dob">
-        <ion-label> DOB: </ion-label>
-        <ion-input type="text" required></ion-input>
-      </ion-item>
+  <ion-item class="createAccountItem" id="dob">
+    <ion-label> Date of Birth: </ion-label>
+    <ion-datetime display-format="MMMM DD, YYYY" required></ion-datetime>
+  </ion-item>
     
     <!-- Credit Card info -->
-    <ion-item class="createAccountItem" id="creditCardNum">
-      <ion-label> Credit Card #: </ion-label>
-      <ion-input type="text" required></ion-input>
-    </ion-item>
+  <ion-item class="createAccountItem" id="creditCardNum">
+    <ion-label> Credit Card #: </ion-label>
+    <ion-input type="text" placeholder="####-######-#####"required></ion-input>
+  </ion-item>
 
-    <ion-item class="createAccountItem" id="creditCardExpDate">
-      <ion-label> Credit Card Expiration: </ion-label>
-      <ion-input type="text" required></ion-input>
-    </ion-item>
+  <ion-item class="createAccountItem" id="creditCardExpDate">
+    <ion-label> Credit Card Expiration: </ion-label>
+    <ion-datetime display-format="MM/YYYY" max="2030-12-31"></ion-datetime>
+  </ion-item>
 
      <!-- billing address -->
-     <ion-item class="createAccountItem" id="billingAddress">
-        <ion-label> Billing Address: </ion-label>
-        <ion-input type="text" required></ion-input>
-    </ion-item>
+  <ion-item class="createAccountItem" id="billingAddress">
+    <ion-label> Billing Address: </ion-label>
+    <ion-input type="text" placeholder="1234 Platinum MotorClub Street" required></ion-input>
+  </ion-item>
 
     <!-- driver license # -->
-    <ion-item class="createAccountItem" id="dlNum">
-        <ion-label> Driver's License #: </ion-label>
-        <ion-input type="text" required></ion-input>
-    </ion-item>
+  <ion-item class="createAccountItem" id="dlNum">
+    <ion-label> Driver's License #: </ion-label>
+    <ion-input type="text" placeholder="########" required></ion-input>
+  </ion-item>
 
     <!-- Insurance contact num -->
-    <ion-item class="createAccountItem" id="insurancePhoneNum">
-        <ion-label> Insurance Phone #: </ion-label>
-        <ion-input type="text" required></ion-input>
-    </ion-item>
+  <ion-item class="createAccountItem" id="insurancePhoneNum">
+    <ion-label> Insurance Phone #: </ion-label>
+    <ion-input type="tel" placeholder="(123)-456-7890" required></ion-input>
+  </ion-item>
 
     <!-- Insurance Company -->
-    <ion-item class="createAccountItem" id="insuranceComp">
-        <ion-label> Insurance Provider: </ion-label>
-        <ion-input type="text" required></ion-input>
-    </ion-item>
+  <ion-item class="createAccountItem" id="insuranceComp">
+    <ion-label> Insurance Provider: </ion-label>
+    <ion-input type="text" placeholder="Platinum Motor Insurance" required></ion-input>
+  </ion-item>
 
     <!-- Insurance expiration -->
-    <ion-item class="createAccountItem" id="insuranceExp">
-        <ion-label> Insurance Expiration: </ion-label>
-        <ion-input type="text" required></ion-input>
-    </ion-item>
+  <ion-item class="createAccountItem" id="insuranceExp">
+    <ion-label> Insurance Expiration: </ion-label>
+    <ion-datetime display-format="MM/YYYY" max="2030-12-31"></ion-datetime>
+  </ion-item>
  </div>
   <br>
   <div text-center>

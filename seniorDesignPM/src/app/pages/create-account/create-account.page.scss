@@ -1,10 +1,9 @@
-// Needs latest Compass, add '@import "compass"' to your scss
-// Permalink - use to edit and share this gradient:
-// http://colorzilla.com/gradient-editor/#4285f4+25,db4437+25,db4437+50,db4437+50,0f9d58+50,0f9d58+75,f4b400+76
-// background-color: #4285f4; // Old browsers
-// @include filter-gradient(#4285f4, #f4b400, horizontal); // IE6-9
-// @include background-image(linear-gradient(left, #4285f4 25%,#db4437 25%,#db4437 50%,#db4437 50%,#0f9d58 50%,#0f9d58 75%,#f4b400 76%));
 
+// @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+
+.create-account-button{
+    margin-top: 2em;
+}
 
 .button-facebook{
     background-color: #3b5998;
@@ -68,9 +67,4 @@
     z-index: 1;
 }
 
-.socialMediaSection{
-    padding-top: 5%;
-    font-size: 100%;
-    color: gray;
-}
 

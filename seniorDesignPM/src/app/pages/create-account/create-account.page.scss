@@ -1,4 +1,10 @@
 
+// @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+
+.create-account-button{
+    margin-top: 2em;
+}
+
 .button-facebook{
     background-color: #3b5998;
     color: white;
@@ -31,7 +37,7 @@
 }
 
 .button-google{
-    background-color: #db3236;
+    background-image: linear-gradient(to right, #db4437 0%,#db4437 25%,#4285f4 25%,#4285f4 50%,#0f9d58 50%,#0f9d58 75%,#f4b400 75%);    // background-color: #db3236;
     color: white;
     text-indent: 2%;
     width: 100%;
@@ -53,7 +59,7 @@
 .googleLogo{
     padding-top: .2em;
     margin-top: .175em;
-    background: #db3236;
+    background: #db4437;
     color: white;
     zoom: 3.0;
     float: left;
@@ -61,18 +67,4 @@
     z-index: 1;
 }
 
-
-// .googleLogin{
-//     color: #db3236;
-//     padding-left: 5%;
-// }
-// .googleText{
-//     color: black;
-//     padding-left: 3%;
-// }
-.socialMediaSection{
-    padding-top: 5%;
-    font-size: 100%;
-    color: gray;
-}
 

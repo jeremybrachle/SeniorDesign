@@ -5,9 +5,8 @@
 </ion-header>
 
 <ion-content padding>
-  <div text-center style="margin: auto; border-style: solid; 
-        padding-top: 5%; padding-bottom: 5%; margin-bottom: 5%;">
-    <h4>Logo</h4>
+  <div text-center style="margin: auto; padding-top: 5%; padding-bottom: 5%; margin-bottom: 5%;">
+        <ion-img src="../../../assets/images/logo.png"></ion-img>
   </div>
 
   <div class = "loginInfo">
@@ -21,16 +20,19 @@
       <ion-input type="text"></ion-input>
     </ion-item><br><br>
 
-    <table>
+    <table style="width:100%">
       <tr>
         <td>
-          <button style="background-color: white; border:none; text-decoration:underline">Forgot password?</button><br>
-          <button style="background-color: white; border:none; text-decoration:underline" [routerLink]="['/create-account']">Create account</button><br>
+          <button style="background-color: white; border:none; width: 100%; text-decoration:underline; text-align:center">Forgot password?</button>
         </td>  
+        <td>
+          <button style="background-color: white; border:none; width: 100%; text-decoration:underline; text-align:center" [routerLink]="['/create-account']">Create account</button><br>
+        </td>
       </tr>
-    </table>
+    </table><br>
 
 
+<<<<<<< HEAD
     <div text-center>
       <ion-button 
       size="large" 
@@ -38,6 +40,10 @@
       [routerLink]="['/home']">
         Login
       </ion-button><br>
+=======
+    <div text-centergit style="text-align: center">
+      <ion-button size="large" style="width:50%;" [routerLink]="['/home']">Login</ion-button><br>
+>>>>>>> master
       <br><br><br>
     </div>
 

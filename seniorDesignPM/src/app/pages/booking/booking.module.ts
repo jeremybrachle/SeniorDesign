@@ -8,6 +8,8 @@ import { IonicModule } from '@ionic/angular';
 import { BookingPage } from './booking.page';
 import { BookingInfoModalPage } from '../Modals/booking-info-modal/booking-info-modal.page';
 import { BookNowModalPage } from '../Modals/book-now-modal/book-now-modal.page';
+import { SharedHeaderModule } from '../../shared-header/shared-header.module';
+
 
 const routes: Routes = [
   {
@@ -21,7 +23,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SharedHeaderModule
   ],
   declarations: [BookingPage, BookingInfoModalPage, BookNowModalPage],
   entryComponents: [BookingInfoModalPage, BookNowModalPage]

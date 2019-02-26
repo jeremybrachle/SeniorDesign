@@ -1,74 +1,44 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      <div text-center>
-        Create Account
-      </div>
-    </ion-title>
+    <ion-title>Create Account</ion-title>
+    <ion-back-button text="Prev" ></ion-back-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
   <form [formGroup]="newAccountUsers" (ngSubmit)="logForm()">
-
-    <!-- first name -->
+    <!-- create username -->
     <ion-item>
-      <ion-label> First Name: </ion-label>
-      <ion-input type="text" formControlName="firstName" placeholder="Benny" pattern="[a-zA-Z ]*" maxLength = "15"></ion-input>
+      <ion-label> Username: </ion-label>
+      <ion-input type="text" formControlName="username" placeholder="min 5 characters" [class.invalid]="!newAccountUsers.controls.username.valid && (newAccountUsers.controls.username.dirty)"> </ion-input>
     </ion-item>
 
-    <!-- last name -->
-    <ion-item>
-      <ion-label> Last Name: </ion-label>
-      <ion-input type="text" formControlName="lastName" placeholder="Black" pattern="[a-zA-Z ]*" maxlength="20"></ion-input> 
+    <!-- if username not valid -->
+    <ion-item *ngIf="!newAccountUsers.controls.username.valid  && (newAccountUsers.controls.username.dirty)">
+        <p>Please enter a valid username.</p>
     </ion-item>
 
-    <!-- Date of Birth -->
+    <!-- create password -->
     <ion-item>
-      <ion-label> Date of Birth: </ion-label>
-      <ion-datetime formControlName="dob" display-format="MMMM DD, YYYY"></ion-datetime>
+      <ion-label> Password: </ion-label>
+      <ion-input type="password" formControlName="password" placeholder="min 8 characters" [class.invalid]="!newAccountUsers.controls.password.valid && (newAccountUsers.controls.password.dirty)"> </ion-input>
     </ion-item>
 
-    <!-- Credit Card info -->
-    <ion-item>
-      <ion-label> Credit Card #: </ion-label>
-      <ion-input type="text" formControlName="creditCardNum" placeholder="####-######-#####" maxlength="10"></ion-input> 
+    <!-- if password not valid -->
+    <ion-item *ngIf="!newAccountUsers.controls.password.valid  && (newAccountUsers.controls.password.dirty)">
+        <p>Please enter a valid password.</p>
     </ion-item>
 
+    <!-- re type password -->
     <ion-item>
-      <ion-label> Credit Card Expiration: </ion-label>
-      <ion-datetime formControlName="creditCardExpDate" display-format="MM/YYYY" max="2030-12-31" ></ion-datetime>
+      <ion-label> Re-Type Password: </ion-label>
+      <ion-input type="password" formControlName="passwordCheck" placeholder="retype password" [class.invalid]="!newAccountUsers.controls.passwordCheck.valid && (newAccountUsers.controls.passwordCheck.dirty)"> </ion-input>
     </ion-item>
 
-    <!-- billing address -->
-    <ion-item>
-      <ion-label> Billing Address: </ion-label>
-      <ion-input type="text" formControlName="billingAddress" placeholder="1234 Platinum MotorClub Street"></ion-input>
-    </ion-item>
-
-    <!-- driver license # -->
-    <ion-item>
-      <ion-label> Driver's License #: </ion-label>
-      <ion-input type="text" formControlName="dlNum" placeholder="########"></ion-input>
-    </ion-item>
-
-    <!-- Insurance contact num -->
-    <ion-item>
-      <ion-label> Insurance Phone #: </ion-label>
-      <ion-input type="tel" formControlName="insurancePhoneNum" placeholder="(123)-456-7890"></ion-input>
-    </ion-item>
-
-    <!-- Insurance Company  -->
-    <ion-item>
-      <ion-label> Insurance Provider: </ion-label>
-      <ion-input formControlName="insuranceComp" type="text" placeholder="Platinum Motor Insurance"></ion-input>
-    </ion-item>
-
-    <!-- Insurance expiration -->
-    <ion-item>
-      <ion-label> Insurance Expiration: </ion-label>
-      <ion-datetime formControlName="insuranceExp" display-format="MM/YYYY" max="2030-12-31"></ion-datetime>
+    <!-- if passwordCheck not valid -->
+    <ion-item *ngIf="!newAccountUsers.controls.passwordCheck.valid  && (newAccountUsers.controls.passwordCheck.dirty)">
+        <p>Please enter same password as above.</p>
     </ion-item>
 
     <div text-center>

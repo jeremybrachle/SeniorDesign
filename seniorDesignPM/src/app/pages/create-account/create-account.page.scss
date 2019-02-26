@@ -13,8 +13,8 @@
     font-size: 1em;
     line-height: 1em;
     padding-right: 1em;
-    padding-top: 1.7em;
-    padding-bottom: 1.7em;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
     padding-left: 2em;
     display: inline-block;
     position: relative;
@@ -26,26 +26,27 @@
 }
 
 .fbLogo{
-    padding-top: .2em;
-    margin-top: .175em;
+    padding-top: .08em;
+    margin-top: .18em;
     background: #3b5998;
     color: white;
-    zoom: 3.0;
+    zoom: 3;
     float: left;
     position: absolute;
     z-index: 1;
+    padding-left: .5em;
 }
 
 .button-google{
-    background-image: linear-gradient(to right, #db4437 0%,#db4437 25%,#4285f4 25%,#4285f4 50%,#0f9d58 50%,#0f9d58 75%,#f4b400 75%);    // background-color: #db3236;
+    background: #db4437;
     color: white;
     text-indent: 2%;
     width: 100%;
     font-size: 1em;
     line-height: 1em;
     padding-right: 1em;
-    padding-top: 1.7em;
-    padding-bottom: 1.7em;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
     padding-left: 2em;
     display: inline-block;
     position: relative;
@@ -57,14 +58,23 @@
 }
 
 .googleLogo{
-    padding-top: .2em;
-    margin-top: .175em;
+    padding-top: .08em;
+    margin-top: .18em;
     background: #db4437;
     color: white;
     zoom: 3.0;
     float: left;
     position: absolute;
     z-index: 1;
+    padding-left: .5em;
 }
 
+.invalid {
+    border: .1em solid #ea6153;
+}
 
+p {
+    font-size: 0.8em;
+    color: rgba(255, 0, 0, 0.5);
+    text-align: center;
+}

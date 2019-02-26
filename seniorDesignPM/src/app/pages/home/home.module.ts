@@ -5,7 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
-import { HeadingComponent } from '../../heading/heading.component';
+import { SharedHeaderModule } from '../../shared-header/shared-header.module';
+
 
 @NgModule({
   imports: [
@@ -17,9 +18,10 @@ import { HeadingComponent } from '../../heading/heading.component';
         path: '',
         component: HomePage
       }
-    ])
+    ]),
+    SharedHeaderModule
   ],
-  declarations: [HomePage, HeadingComponent]
+  declarations: [HomePage]
 })
 export class HomePageModule {}
 

@@ -25,7 +25,8 @@ export class BookingPage implements OnInit {
 
   async bookNow() {
     const modal = await this.modalController.create({
-      component: BookNowModalPage
+      component: BookNowModalPage,
+      cssClass: 'small-modal'
     });
 
     await modal.present();

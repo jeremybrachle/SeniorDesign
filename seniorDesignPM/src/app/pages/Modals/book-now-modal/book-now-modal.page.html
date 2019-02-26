@@ -1,13 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      <span (click)="dismiss()" style="color:blue">&lt; Cancel</span>
-    </ion-title>
+    <ion-title>Book Now</ion-title>
+    <ion-buttons (click)="dismiss()" slot="primary">
+      <ion-button style="color: #3881ff">Cancel</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <h1>Booking Details</h1>
   <ion-item>
     <ion-label position="stacked">Pickup Location</ion-label>
     <ion-input></ion-input>
@@ -27,7 +27,9 @@
     <ion-input type="time"></ion-input>
   </ion-item>
 
-  <div text-center>
-    <ion-button>Confirm</ion-button>
-  </div>
+
 </ion-content>
+
+<ion-footer text-center>
+  <ion-button>Confirm</ion-button>
+</ion-footer>

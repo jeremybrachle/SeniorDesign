@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-create-account',
@@ -16,17 +15,7 @@ export class CreateAccountPage implements OnInit {
     this.newAccountUsers = formBuilder.group({
       username: ['', Validators.compose([Validators.maxLength(20), Validators.minLength(5), Validators.pattern('[a-zA-Z0-9]*'), Validators.required])],
       password: ['', Validators.compose([Validators.maxLength(20), Validators.minLength(8), Validators.pattern('[a-zA-z0-9!@#$%^&*]*'), Validators.required])],
-      passwordCheck: ['', Validators.required] 
-      // firstName: ['', Validators.required],
-      // lastName: ['', Validators.required],
-      // dob: ['', Validators.required],
-      // creditCardNum: ['', Validators.required],
-      // creditCardExpDate: ['', Validators.required],
-      // billingAddress: ['', Validators.required],
-      // dlNum: ['', Validators.required],
-      // insurancePhoneNum: ['', Validators.required],
-      // insuranceComp: ['', Validators.required],
-      // insuranceExp: ['', Validators.required]
+      passwordCheck: ['', Validators.required]
     }, {validator: this.checkIfPasswordsMatch('password', 'passwordCheck')});
 
    }

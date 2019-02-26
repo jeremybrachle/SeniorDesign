@@ -38,7 +38,6 @@
 }
 
 .button-google{
-    // background-image: linear-gradient(to right, #db4437 0%,#db4437 25%,#4285f4 25%,#4285f4 50%,#0f9d58 50%,#0f9d58 75%,#f4b400 75%);    // background-color: #db3236;
     background: #db4437;
     color: white;
     text-indent: 2%;
@@ -70,4 +69,12 @@
     padding-left: .5em;
 }
 
+.invalid {
+    border: .1em solid #ea6153;
+}
 
+p {
+    font-size: 0.8em;
+    color: rgba(255, 0, 0, 0.5);
+    text-align: center;
+}

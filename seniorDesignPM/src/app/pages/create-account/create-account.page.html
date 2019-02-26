@@ -11,19 +11,34 @@
     <!-- create username -->
     <ion-item>
       <ion-label> Username: </ion-label>
-      <ion-input type="text" formControlName="username" placeholder="min 5 characters"> </ion-input>
+      <ion-input type="text" formControlName="username" placeholder="min 5 characters" [class.invalid]="!newAccountUsers.controls.username.valid && (newAccountUsers.controls.username.dirty)"> </ion-input>
+    </ion-item>
+
+    <!-- if username not valid -->
+    <ion-item *ngIf="!newAccountUsers.controls.username.valid  && (newAccountUsers.controls.username.dirty)">
+        <p>Please enter a valid username.</p>
     </ion-item>
 
     <!-- create password -->
     <ion-item>
       <ion-label> Password: </ion-label>
-      <ion-input type="password" formControlName="password" placeholder="min 8 characters"> </ion-input>
+      <ion-input type="password" formControlName="password" placeholder="min 8 characters" [class.invalid]="!newAccountUsers.controls.password.valid && (newAccountUsers.controls.password.dirty)"> </ion-input>
+    </ion-item>
+
+    <!-- if password not valid -->
+    <ion-item *ngIf="!newAccountUsers.controls.password.valid  && (newAccountUsers.controls.password.dirty)">
+        <p>Please enter a valid password.</p>
     </ion-item>
 
     <!-- re type password -->
     <ion-item>
       <ion-label> Re-Type Password: </ion-label>
-      <ion-input type="password" formControlName="passwordCheck" placeholder="retype password"> </ion-input>
+      <ion-input type="password" formControlName="passwordCheck" placeholder="retype password" [class.invalid]="!newAccountUsers.controls.passwordCheck.valid && (newAccountUsers.controls.passwordCheck.dirty)"> </ion-input>
+    </ion-item>
+
+    <!-- if passwordCheck not valid -->
+    <ion-item *ngIf="!newAccountUsers.controls.passwordCheck.valid  && (newAccountUsers.controls.passwordCheck.dirty)">
+        <p>Please enter same password as above.</p>
     </ion-item>
 
     <div text-center>

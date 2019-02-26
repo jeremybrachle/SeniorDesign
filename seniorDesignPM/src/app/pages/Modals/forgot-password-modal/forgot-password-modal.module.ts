@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPage } from './login.page';
-import { ForgotPasswordModalPage } from '../Modals/forgot-password-modal/forgot-password-modal.page'
+import { ForgotPasswordModalPage } from './forgot-password-modal.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginPage
+    component: ForgotPasswordModalPage
   }
 ];
 
@@ -22,7 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [LoginPage, ForgotPasswordModalPage],
-  entryComponents: [ForgotPasswordModalPage]
+  declarations: [ForgotPasswordModalPage]
 })
-export class LoginPageModule {}
+export class ForgotPasswordModalPageModule {}

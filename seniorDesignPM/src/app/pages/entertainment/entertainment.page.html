@@ -1,0 +1,35 @@
+<app-heading></app-heading>
+
+<ion-content padding>
+  <div text-center>
+    <h6>Entertainment Selection</h6>
+    <ion-button class="entertainment-button" (click)="presentDiningModal()" expand="block" color="customDarkGrey">
+      Dining
+      <ion-badge class="entertainment-badge" color="customMedBlue" *ngIf="numDining > 0">{{numDining}}</ion-badge>
+    </ion-button>
+
+    <ion-button expand="block" color="customDarkGrey">
+      Sports/Concerts
+    </ion-button>
+    <ion-button expand="block" color="customDarkGrey">
+      Accomodations
+    </ion-button>
+    <ion-button expand="block" color="customDarkGrey">
+      Night Life
+    </ion-button>
+    <ion-button expand="block" color="customDarkGrey">
+      Experiences
+    </ion-button>
+  </div>
+
+  <ion-toolbar>
+    <ion-button color="light" (click)="cancel()" [routerLink]="['/home']">Cancel</ion-button>
+    <ion-button color="customMedBlue" slot="primary">Continue</ion-button>
+  </ion-toolbar>
+
+</ion-content>
+
+<!-- <ion-footer text-center>
+  <ion-button color="danger">Cancel</ion-button>
+  <ion-button color="customMedBlue">Continue</ion-button>
+</ion-footer> -->

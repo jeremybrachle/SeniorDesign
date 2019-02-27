@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'book-now-modal', loadChildren: './pages/Modals/book-now-modal/book-now-modal.module#BookNowModalPageModule' },
   { path: 'entertainment', loadChildren: './pages/entertainment/entertainment.module#EntertainmentPageModule' },
 
-  { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule' }
+  { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule' },  { path: 'dining-modal', loadChildren: './pages/Modals/dining-modal/dining-modal.module#DiningModalPageModule' }
+
 
 
 ];

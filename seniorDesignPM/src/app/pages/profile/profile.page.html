@@ -6,18 +6,28 @@
 </ion-header>
 
 <ion-content>
-<!-- next & previous buttons -->
-<ion-buttons>
-  <button ion-button (click)="prev()"><ion-icon name="arrow-back"></ion-icon>Prev</button>
-</ion-buttons>
+  <!-- <ion-toolbar>
+    next & previous buttons
+    <ion-buttons slot="secondary">
+      <button color="#3881FF" ion-button icon-left (click)="prev()">
+        <div class="prevButton">
+          <ion-icon name="arrow-back"></ion-icon>
+        </div>
+        Prev</button>
+    </ion-buttons>
+    
+    <ion-buttons slot="primary">
+      <button color="customedDarkBlue" ion-button icon-right (click)="next()">Next 
+        <div class="nextButton">
+          <ion-icon name="arrow-forward"></ion-icon>
+        </div>
+      </button>
+    </ion-buttons>
+  </ion-toolbar> -->
 
-<ion-buttons>
-  <button ion-button (click)="next()">Next <ion-icon name="arrow-forward"></ion-icon></button>
-</ion-buttons>
 
 
 <ion-slides #profileInfoSlider pager>
-
   
   <ion-slide>
     <p *ngIf="saveAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
@@ -170,7 +180,7 @@
           <!-- zip/postal code -->
           <ion-item>
             <ion-label> Zip/Postal Code: </ion-label>
-            <ion-input formControlName="zipPostalCode" type="number" [class.invalid]="!personalInfoSliderForm.controls.zipPostalCode.valid && (personalInfoSliderForm.controls.zipPostalCode.dirty || saveAttempt)"></ion-input>
+            <ion-input formControlName="zipPostalCode" type="text" [class.invalid]="!personalInfoSliderForm.controls.zipPostalCode.valid && (personalInfoSliderForm.controls.zipPostalCode.dirty || saveAttempt)"></ion-input>
           </ion-item>
 
           <!-- if zip/postal code is not valid -->
@@ -205,7 +215,7 @@
         <!-- credit card number -->
         <ion-item>
           <ion-label> Credit Card Number: </ion-label>
-          <ion-input formControlName="creditCardNum" type="number" [class.invalid]="!paymentInfoSliderForm.controls.creditCardNum.valid && (paymentInfoSliderForm.controls.creditCardNum.dirty || saveAttempt)"></ion-input>
+          <ion-input formControlName="creditCardNum" type="text" [class.invalid]="!paymentInfoSliderForm.controls.creditCardNum.valid && (paymentInfoSliderForm.controls.creditCardNum.dirty || saveAttempt)"></ion-input>
         </ion-item>
 
         <!-- if credit card num code is not valid -->
@@ -219,7 +229,7 @@
           <ion-input formControlName="cardHolder" type="text" [class.invalid]="!paymentInfoSliderForm.controls.cardHolder.valid && (paymentInfoSliderForm.controls.cardHolder.dirty || saveAttempt)"></ion-input>
         </ion-item>
 
-        <!-- if city is not valid -->
+        <!-- if card holder is not valid -->
         <ion-item *ngIf="!paymentInfoSliderForm.controls.cardHolder.valid  && (paymentInfoSliderForm.controls.cardHolder.dirty || saveAttempt)">
           <p>Please enter a valid name.</p>
         </ion-item>
@@ -238,7 +248,7 @@
         <!-- credit card expiration year -->
         <ion-item>
           <ion-label> Expiration Year: </ion-label>
-          <ion-datetime formControlName="creditCardExpYear" display-format="YYYY" [class.invalid]="!paymentInfoSliderForm.controls.creditCardExpYear.valid && (paymentInfoSliderForm.controls.creditCardExpYear.dirty || saveAttempt)"></ion-datetime>
+          <ion-datetime formControlName="creditCardExpYear" display-format="YYYY" min="2019" max="2024" [class.invalid]="!paymentInfoSliderForm.controls.creditCardExpYear.valid && (paymentInfoSliderForm.controls.creditCardExpYear.dirty || saveAttempt)"></ion-datetime>
         </ion-item>
 
         <!-- if credit card expiration year not valid -->
@@ -246,32 +256,148 @@
           <p>Please select a valid year.</p>
         </ion-item>
 
-        <!-- billing address (optional) -->
+        <h5> Billing Address</h5>
+
+        <!-- billing address same as mailing address -->
         <ion-item>
-          <ion-label> Billing Address: </ion-label>
-          <ion-input formControlName="billingAddress" type="text" placehlder="(optional) if not same as permanent address" [class.invalid]="!paymentInfoSliderForm.controls.billingAddress.valid && (paymentInfoSliderForm.controls.billingAddress.dirty || saveAttempt)"></ion-input>
+          <ion-label> Same as mailing address.</ion-label>
+          <ion-checkbox (click)="toggleCheckbox()"></ion-checkbox>
         </ion-item>
 
-        <!-- if billing address is not valid -->
-        <ion-item *ngIf="!paymentInfoSliderForm.controls.billingAddress.valid  && (paymentInfoSliderForm.controls.billingAddress.dirty || saveAttempt)">
-          <p>Please enter a valid address.</p>
-        </ion-item>
+        <div *ngIf="!showItem">
 
-        <!-- city (optional) -->
+          <!-- billing address (optional) -->
+          <ion-item>
+            <ion-label> Billing Address: </ion-label>
+            <ion-input formControlName="billingAddress" type="text" placehlder="(optional) if not same as permanent address" [class.invalid]="!paymentInfoSliderForm.controls.billingAddress.valid && (paymentInfoSliderForm.controls.billingAddress.dirty || saveAttempt)"></ion-input>
+          </ion-item>
+  
+          <!-- if billing address is not valid -->
+          <ion-item *ngIf="!paymentInfoSliderForm.controls.billingAddress.valid  && (paymentInfoSliderForm.controls.billingAddress.dirty || saveAttempt)">
+            <p>Please enter a valid address.</p>
+          </ion-item>
+  
+          <!-- city (optional) -->
+          <ion-item>
+            <ion-label> City: </ion-label>
+            <ion-input formControlName="bACity" type="text" [class.invalid]="!paymentInfoSliderForm.controls.bACity.valid && (paymentInfoSliderForm.controls.bACity.dirty || saveAttempt)"></ion-input>
+          </ion-item>
+  
+          <!-- if city is not valid -->
+          <ion-item *ngIf="!paymentInfoSliderForm.controls.bACity.valid  && (paymentInfoSliderForm.controls.bACity.dirty || saveAttempt)">
+            <p>Please enter a valid city.</p>
+          </ion-item>
+  
+          <!-- billing state/province (optional) -->
+          <ion-item>
+            <ion-label> State/Province: </ion-label>
+            <ion-select formControlName="bAStateProvince" value="TX" [class.invalid]="!paymentInfoSliderForm.controls.bAStateProvince.valid && (paymentInfoSliderForm.controls.bAStateProvince.dirty || saveAttempt)">
+              <ion-select-option value="AL">Alabama</ion-select-option>
+              <ion-select-option value="AK">Alaska</ion-select-option>
+              <ion-select-option value="AZ">Arizona</ion-select-option>
+              <ion-select-option value="AR">Arkansas</ion-select-option>
+              <ion-select-option value="CA">California</ion-select-option>
+              <ion-select-option value="CO">Colorado</ion-select-option>
+              <ion-select-option value="CT">Connecticut</ion-select-option>
+              <ion-select-option value="DE">Delaware</ion-select-option>
+              <ion-select-option value="DC">D.C.</ion-select-option>
+              <ion-select-option value="FL">Florida</ion-select-option>
+              <ion-select-option value="GA">Georgia</ion-select-option>
+              <ion-select-option value="HI">Hawaii</ion-select-option>
+              <ion-select-option value="ID">Idaho</ion-select-option>
+              <ion-select-option value="IL">Illinois</ion-select-option>
+              <ion-select-option value="IN">Indiana</ion-select-option>
+              <ion-select-option value="IA">Iowa</ion-select-option>
+              <ion-select-option value="KS">Kansas</ion-select-option>
+              <ion-select-option value="KY">Kentucky</ion-select-option>
+              <ion-select-option value="LA">Louisiana</ion-select-option>
+              <ion-select-option value="ME">Maine</ion-select-option>
+              <ion-select-option value="MD">Maryland</ion-select-option>
+              <ion-select-option value="MA">Massachusetts</ion-select-option>
+              <ion-select-option value="MI">Michigan</ion-select-option>
+              <ion-select-option value="MN">Minnesota</ion-select-option>
+              <ion-select-option value="MS">Mississippi</ion-select-option>
+              <ion-select-option value="MO">Missouri</ion-select-option>
+              <ion-select-option value="MT">Montana</ion-select-option>
+              <ion-select-option value="NE">Nebraska</ion-select-option>
+              <ion-select-option value="NV">Nevada</ion-select-option>
+              <ion-select-option value="NH">New Hampshire</ion-select-option>
+              <ion-select-option value="NJ">New Jersey</ion-select-option>
+              <ion-select-option value="NM">New Mexico</ion-select-option>
+              <ion-select-option value="NY">New York</ion-select-option>
+              <ion-select-option value="NC">North Carolina</ion-select-option>
+              <ion-select-option value="ND">North Dakota</ion-select-option>
+              <ion-select-option value="OH">Ohio</ion-select-option>
+              <ion-select-option value="OK">Oklahoma</ion-select-option>
+              <ion-select-option value="OR">Oregon</ion-select-option>
+              <ion-select-option value="PA">Pennsylvania</ion-select-option>
+              <ion-select-option value="RI">Rhode Island</ion-select-option>
+              <ion-select-option value="SC">South Carolina</ion-select-option>
+              <ion-select-option value="SD">South Dakota</ion-select-option>
+              <ion-select-option value="TN">Tennessee</ion-select-option>
+              <ion-select-option value="TX">Texas</ion-select-option>
+              <ion-select-option value="UT">Utah</ion-select-option>
+              <ion-select-option value="VT">Vermont</ion-select-option>
+              <ion-select-option value="VA">Virginia</ion-select-option>
+              <ion-select-option value="WA">Washington</ion-select-option>
+              <ion-select-option value="WV">West Virginia</ion-select-option>
+              <ion-select-option value="WI">Wisconsin</ion-select-option>
+              <ion-select-option value="WY">Wyoming</ion-select-option>
+            </ion-select>
+          </ion-item>
+  
+          <!-- if state/province is not valid -->
+          <ion-item *ngIf="!paymentInfoSliderForm.controls.bAStateProvince.valid  && (personalInfoSliderForm.controls.bAStateProvince.dirty || saveAttempt)">
+              <p>Please select a valid state/province.</p>
+          </ion-item>
+  
+          <!-- billing zip/postal code (optional) -->
+          <ion-item>
+            <ion-label> Zip/Postal Code: </ion-label>
+            <ion-input formControlName="bAZipPostalCode" type="text" [class.invalid]="!paymentInfoSliderForm.controls.bAZipPostalCode.valid && (paymentInfoSliderForm.controls.bAZipPostalCode.dirty || saveAttempt)"></ion-input>
+          </ion-item>
+  
+          <!-- if zip/postal code is not valid -->
+          <ion-item *ngIf="!paymentInfoSliderForm.controls.bAZipPostalCode.valid  && (paymentInfoSliderForm.controls.bAZipPostalCode.dirty || saveAttempt)">
+            <p>Please enter a valid zip/postal code.</p>
+          </ion-item>
+        </div>
+      </form>
+    </ion-list>
+  </ion-slide>
+
+  <ion-slide>
+    <ion-list no-lines>
+      <form [formGroup]="driverInfoSliderForm">
+        
+        <h6>Driver Information</h6>
+
+        <!-- driver license # -->
         <ion-item>
-          <ion-label> City: </ion-label>
-          <ion-input formControlName="bACity" type="text" [class.invalid]="!paymentInfoSliderForm.controls.bACity.valid && (paymentInfoSliderForm.controls.bACity.dirty || saveAttempt)"></ion-input>
+          <ion-label>Driver License Number:</ion-label>
+          <ion-input formControlName="dlNum" type="text" [class.invalid]="!driverInfoSliderForm.controls.dlNum.valid && (driverInfoSliderForm.controls.dlNum.dirty || saveAttempt)"></ion-input>
         </ion-item>
 
-        <!-- if city is not valid -->
-        <ion-item *ngIf="!paymentInfoSliderForm.controls.bACity.valid  && (paymentInfoSliderForm.controls.bACity.dirty || saveAttempt)">
-          <p>Please enter a valid city.</p>
+        <!-- if driver license # is not valid -->
+        <ion-item *ngIf="!driverInfoSliderForm.controls.dlNum.valid  && (driverInfoSliderForm.controls.dlNum.dirty || saveAttempt)">
+          <p>Please enter a valid driver's license.</p>
         </ion-item>
 
-        <!-- billing state/province (optional) -->
+        <!-- driver license expiration date -->
         <ion-item>
-          <ion-label> State/Province: </ion-label>
-          <ion-select formControlName="bAStateProvince" value="TX" [class.invalid]="!paymentInfoSliderForm.controls.bAStateProvince.valid && (paymentInfoSliderForm.controls.bAStateProvince.dirty || saveAttempt)">
+          <ion-label>Driver's License Expiration:</ion-label>
+          <ion-datetime formControlName="dlExp" display-format="MM/DD/YYYY" min="2019" max="2023" [class.invalid]="!driverInfoSliderForm.controls.dlExp.valid && (driverInfoSliderForm.controls.dlExp.dirty || saveAttempt)"></ion-datetime>
+        </ion-item>
+
+        <!-- if driver license exp is not valid -->
+        <ion-item *ngIf="!driverInfoSliderForm.controls.dlNum.valid  && (driverInfoSliderForm.controls.dlNum.dirty || saveAttempt)">
+          <p>Please enter a valid expiration date.</p>
+        </ion-item>
+
+        <!-- driver license state -->
+        <ion-item>
+          <ion-label>Driver's License State:</ion-label>
+          <ion-select formControlName="dlState" value="TX" [class.invalid]="!driverInfoSliderForm.controls.dlState.valid && (driverInfoSliderForm.controls.dlState.dirty || saveAttempt)">
             <ion-select-option value="AL">Alabama</ion-select-option>
             <ion-select-option value="AK">Alaska</ion-select-option>
             <ion-select-option value="AZ">Arizona</ion-select-option>
@@ -325,100 +451,74 @@
             <ion-select-option value="WY">Wyoming</ion-select-option>
           </ion-select>
         </ion-item>
-
-        <!-- if state/province is not valid -->
-        <ion-item *ngIf="!paymentInfoSliderForm.controls.bAStateProvince.valid  && (personalInfoSliderForm.controls.bAStateProvince.dirty || saveAttempt)">
-            <p>Please select a valid state/province.</p>
+  
+        <!-- if driver license state is not valid -->
+        <ion-item *ngIf="!driverInfoSliderForm.controls.dlState.valid  && (driverInfoSliderForm.controls.dlState.dirty || saveAttempt)">
+          <p>Please enter a valid state.</p>
         </ion-item>
 
-        <!-- billing zip/postal code (optional) -->
+         <!-- insurance company -->
         <ion-item>
-          <ion-label> Zip/Postal Code: </ion-label>
-          <ion-input formControlName="bAZipPostalCode" type="number" [class.invalid]="!paymentInfoSliderForm.controls.bAZipPostalCode.valid && (paymentInfoSliderForm.controls.bAZipPostalCode.dirty || saveAttempt)"></ion-input>
+          <ion-label>Insurance Company:</ion-label>
+          <ion-input formControlName="insuranceComp" type="text" [class.invalid]="!driverInfoSliderForm.controls.insuranceComp.valid && (driverInfoSliderForm.controls.insuranceComp.dirty || saveAttempt)"></ion-input>
         </ion-item>
 
-        <!-- if zip/postal code is not valid -->
-        <ion-item *ngIf="!paymentInfoSliderForm.controls.bAZipPostalCode.valid  && (paymentInfoSliderForm.controls.bAZipPostalCode.dirty || saveAttempt)">
-          <p>Please enter a valid zip/postal code.</p>
+        <!-- if driver license exp is not valid -->
+        <ion-item *ngIf="!driverInfoSliderForm.controls.insuranceComp.valid  && (driverInfoSliderForm.controls.insuranceComp.dirty || saveAttempt)">
+          <p>Please enter a valid name.</p>
         </ion-item>
+
+        <!-- insurance expiration -->
+        <ion-item>
+          <ion-label>Insurance Expiration:</ion-label>
+          <ion-datetime formControlName="insuranceExp" display-format="MM/DD/YYYY" min="2019" max="2023" [class.invalid]="!driverInfoSliderForm.controls.insuranceExp.valid && (driverInfoSliderForm.controls.insuranceExp.dirty || saveAttempt)"></ion-datetime>
+        </ion-item>
+
+        <!-- if insurance exp is not valid -->
+        <ion-item *ngIf="!driverInfoSliderForm.controls.insuranceExp.valid  && (driverInfoSliderForm.controls.insuranceExp.dirty || saveAttempt)">
+          <p>Please enter a valid date.</p>
+        </ion-item>
+
+        <!-- insurance phone -->
+        <ion-item>
+          <ion-label>Insurance Phone:</ion-label>
+          <ion-input formControlName="insurancePhone" type="tel" [class.invalid]="!driverInfoSliderForm.controls.insurancePhone.valid && (driverInfoSliderForm.controls.insurancePhone.dirty || saveAttempt)"></ion-input>
+        </ion-item>
+
+        <!-- if insurance phone is not valid -->
+        <ion-item *ngIf="!driverInfoSliderForm.controls.insurancePhone.valid  && (driverInfoSliderForm.controls.insurancePhone.dirty || saveAttempt)">
+          <p>Please enter a valid phone number.</p>
+        </ion-item>
+
+        <!-- insurance contact name -->
+        <ion-item>
+          <ion-label>Insurance Contact:</ion-label>
+          <ion-input formControlName="insuranceContact" type="text" [class.invalid]="!driverInfoSliderForm.controls.insuranceContact.valid && (driverInfoSliderForm.controls.insuranceContact.dirty || saveAttempt)"></ion-input>
+        </ion-item>
+
+        <!-- if insurance contact is not valid -->
+        <ion-item *ngIf="!driverInfoSliderForm.controls.insuranceContact.valid  && (driverInfoSliderForm.controls.insuranceContact.dirty || saveAttempt)">
+          <p>Please enter a valid name.</p>
+        </ion-item>
+
+        <!-- insurance policy num -->
+        <ion-item>
+          <ion-label>Policy Number:</ion-label>
+          <ion-input formControlName="insurancePolicyNum" type="text" [class.invalid]="!driverInfoSliderForm.controls.insurancePolicyNum.valid && (driverInfoSliderForm.controls.insurancePolicyNum.dirty || saveAttempt)"></ion-input>
+        </ion-item>
+
+        <!-- if insurance policy num is not valid -->
+        <ion-item *ngIf="!driverInfoSliderForm.controls.insurancePolicyNum.valid  && (driverInfoSliderForm.controls.insurancePolicyNum.dirty || saveAttempt)">
+          <p>Please enter a valid number.</p>
+        </ion-item>
+
       </form>
     </ion-list>
-  </ion-slide>
-  <ion-slide>
 
   </ion-slide>
+
 
   <!-- <button ion-button full color="primary" (click)="save()">Save Information</button> -->
 </ion-slides>
-
-    
-
-     <!-- billing address -->
-  <!-- <ion-item class="createAccountItem" id="billingAddress">
-    <ion-label> Billing Address: </ion-label>
-    <ion-input type="text" placeholder="1234 Platinum MotorClub Street" required></ion-input>
-  </ion-item>
-    <ion-item>
-      <ion-label> Credit Card #: </ion-label>
-      <ion-input type="text" formControlName="creditCardNum" placeholder="####-######-#####" maxlength="10"></ion-input> 
-    </ion-item>
-
-    <ion-item>
-      <ion-label> Credit Card Expiration: </ion-label>
-      <ion-datetime formControlName="creditCardExpDate" display-format="MM/YYYY" max="2030-12-31" ></ion-datetime>
-    </ion-item> -->
-
-    <!-- billing address -->
-    <!-- <ion-item>
-      <ion-label> Billing Address: </ion-label>
-      <ion-input type="text" formControlName="billingAddress" placeholder="1234 Platinum MotorClub Street"></ion-input>
-    </ion-item> -->
-
-    <!-- driver license # -->
-  <!-- <ion-item class="createAccountItem" id="dlNum"> -->
-    <!-- <ion-label> Driver's License #: </ion-label>
-    <ion-input type="text" placeholder="########" required></ion-input>
-  </ion-item> -->
-    <!-- <ion-item>
-      <ion-label> Driver's License #: </ion-label>
-      <ion-input type="text" formControlName="dlNum" placeholder="########"></ion-input>
-    </ion-item> -->
-
-    <!-- Insurance contact num -->
-  <!-- <ion-item class="createAccountItem" id="insurancePhoneNum">
-    <ion-label> Insurance Phone #: </ion-label>
-    <ion-input type="tel" placeholder="(123)-456-7890" required></ion-input>
-  </ion-item> -->
-    <!-- <ion-item>
-      <ion-label> Insurance Phone #: </ion-label>
-      <ion-input type="tel" formControlName="insurancePhoneNum" placeholder="(123)-456-7890"></ion-input>
-    </ion-item> -->
-
-    <!-- Insurance Company -->
-  <!-- <ion-item class="createAccountItem" id="insuranceComp">
-    <ion-label> Insurance Provider: </ion-label>
-    <ion-input type="text" placeholder="Platinum Motor Insurance" required></ion-input>
-  </ion-item> -->
-    <!-- Insurance Company  -->
-    <!-- <ion-item>
-      <ion-label> Insurance Provider: </ion-label>
-      <ion-input formControlName="insuranceComp" type="text" placeholder="Platinum Motor Insurance"></ion-input>
-    </ion-item> -->
-
-    <!-- Insurance expiration -->
-  <!-- <ion-item class="createAccountItem" id="insuranceExp">
-    <ion-label> Insurance Expiration: </ion-label>
-    <ion-datetime display-format="MM/YYYY" max="2030-12-31"></ion-datetime>
-  </ion-item> -->
- 
-  <!-- <br> -->
-  <!-- <div text-center>
-    <ion-button [routerLink]="['/home']">Create Account</ion-button>
-  </div> -->
-    <!-- <ion-item>
-      <ion-label> Insurance Expiration: </ion-label>
-      <ion-datetime formControlName="insuranceExp" display-format="MM/YYYY" max="2030-12-31"></ion-datetime>
-    </ion-item> -->
-  <!-- </form> -->
   
 </ion-content>

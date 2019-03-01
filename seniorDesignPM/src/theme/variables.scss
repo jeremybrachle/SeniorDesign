@@ -78,7 +78,7 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 
-
+  // custom colors:
   .ion-color-customDarkGrey {
     --ion-color-base: #47525D;
     --ion-color-base-rgb: 71, 82, 93;
@@ -86,6 +86,15 @@
     --ion-color-contrast-rgb: 0, 0, 0;
     --ion-color-shade: #47525D;
     --ion-color-tint: #47525D;
+  }
+
+  .ion-color-customLightGrey {
+    --ion-color-base: #BCBCBC;
+    --ion-color-base-rgb: 188, 188, 188;
+    --ion-color-contrast: #ffffff;
+    --ion-color-contrast-rgb: 0, 0, 0;
+    --ion-color-shade: #BCBCBC;
+    --ion-color-tint: #BCBCBC;
   }
 
   .ion-color-customMedBlue {

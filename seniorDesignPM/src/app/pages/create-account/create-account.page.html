@@ -10,13 +10,13 @@
   <form [formGroup]="newAccountUsers" (ngSubmit)="logForm()">
     <!-- create username -->
     <ion-item>
-      <ion-label> Username: </ion-label>
-      <ion-input type="text" formControlName="username" placeholder="min 5 characters" [class.invalid]="!newAccountUsers.controls.username.valid && (newAccountUsers.controls.username.dirty)"> </ion-input>
+      <ion-label> Email: </ion-label>
+      <ion-input type="text" formControlName="email" placeholder="valid email" [class.invalid]="!newAccountUsers.controls.email.valid && (newAccountUsers.controls.email.dirty)"> </ion-input>
     </ion-item>
 
     <!-- if username not valid -->
-    <ion-item *ngIf="!newAccountUsers.controls.username.valid  && (newAccountUsers.controls.username.dirty)">
-        <p>Please enter a valid username.</p>
+    <ion-item *ngIf="!newAccountUsers.controls.email.valid  && (newAccountUsers.controls.email.dirty)">
+        <p>Please enter a valid email.</p>
     </ion-item>
 
     <!-- create password -->

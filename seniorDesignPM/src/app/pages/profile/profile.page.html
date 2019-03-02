@@ -6,26 +6,6 @@
 </ion-header>
 
 <ion-content>
-  <!-- <ion-toolbar>
-    next & previous buttons
-    <ion-buttons slot="secondary">
-      <button color="#3881FF" ion-button icon-left (click)="prev()">
-        <div class="prevButton">
-          <ion-icon name="arrow-back"></ion-icon>
-        </div>
-        Prev</button>
-    </ion-buttons>
-    
-    <ion-buttons slot="primary">
-      <button color="customedDarkBlue" ion-button icon-right (click)="next()">Next 
-        <div class="nextButton">
-          <ion-icon name="arrow-forward"></ion-icon>
-        </div>
-      </button>
-    </ion-buttons>
-  </ion-toolbar> -->
-
-
 
 <ion-slides #profileInfoSlider pager>
   
@@ -60,15 +40,15 @@
           </ion-item>
 
           <!-- email -->
-          <ion-item>
+          <!-- <ion-item>
             <ion-label floating> Email: </ion-label>
             <ion-input formControlName="email" type="email" [class.invalid]="!personalInfoSliderForm.controls.email.valid && (personalInfoSliderForm.controls.email.dirty || saveAttempt)"></ion-input>
-          </ion-item>
+          </ion-item> -->
 
           <!-- if email not valid -->
-          <ion-item *ngIf="!personalInfoSliderForm.controls.email.valid  && (personalInfoSliderForm.controls.email.dirty || saveAttempt)">
+          <!-- <ion-item *ngIf="!personalInfoSliderForm.controls.email.valid  && (personalInfoSliderForm.controls.email.dirty || saveAttempt)">
               <p>Please enter a valid email.</p>
-          </ion-item>
+          </ion-item> -->
 
           <!-- phone number -->
           <ion-item>
@@ -83,7 +63,7 @@
 
           <!-- birth date -->
           <ion-item>
-            <ion-label> Birth Day: </ion-label>
+            <ion-label> Date of Birth: </ion-label>
             <ion-datetime formControlName="dob" display-format="MMMM DD, YYYY" min="1919" max="1994" [class.invalid]="!personalInfoSliderForm.controls.dob.valid && (personalInfoSliderForm.controls.dob.dirty || saveAttempt)"></ion-datetime>
           </ion-item>
 
@@ -221,6 +201,17 @@
         <!-- if credit card num code is not valid -->
         <ion-item *ngIf="!paymentInfoSliderForm.controls.creditCardNum.valid  && (paymentInfoSliderForm.controls.creditCardNum.dirty || saveAttempt)">
             <p>Please enter a valid credit card number.</p>
+        </ion-item>
+
+        <!-- credit card security code -->
+        <ion-item>
+          <ion-label> Security Code: </ion-label>
+          <ion-input formControlName="csv" type="text" [class.invalid]="!paymentInfoSliderForm.controls.csv.valid && (paymentInfoSliderForm.controls.csv.dirty || saveAttempt)"></ion-input>
+        </ion-item>
+
+        <!-- if credit card security code is not valid -->
+        <ion-item *ngIf="!paymentInfoSliderForm.controls.csv.valid  && (paymentInfoSliderForm.controls.csv.dirty || saveAttempt)">
+            <p>Please enter a valid number.</p>
         </ion-item>
 
         <!-- card holder name -->

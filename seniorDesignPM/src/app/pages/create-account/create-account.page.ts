@@ -13,7 +13,7 @@ export class CreateAccountPage implements OnInit {
 
   constructor( private formBuilder : FormBuilder) { 
     this.newAccountUsers = formBuilder.group({
-      username: ['', Validators.compose([Validators.maxLength(20), Validators.minLength(5), Validators.pattern('[a-zA-Z0-9]*'), Validators.required])],
+      email: ['', Validators.compose([Validators.pattern('[a-zA-Z0-9._]+[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}'), Validators.required])],
       password: ['', Validators.compose([Validators.maxLength(20), Validators.minLength(8), Validators.pattern('[a-zA-z0-9!@#$%^&*]*'), Validators.required])],
       passwordCheck: ['', Validators.required]
     }, {validator: this.checkIfPasswordsMatch('password', 'passwordCheck')});

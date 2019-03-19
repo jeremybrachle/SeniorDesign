@@ -8,6 +8,8 @@ import { IonicModule } from '@ionic/angular';
 import { EntertainmentPage } from './entertainment.page';
 import { SharedHeaderModule } from '../../shared-header/shared-header.module';
 import { DiningModalPage } from '../Modals/dining-modal/dining-modal.page';
+import { SportsConcertsModalPage } from '../Modals/sports-concerts-modal/sports-concerts-modal.page';
+import { ExperiencesModalPage } from '../Modals/experiences-modal/experiences-modal.page';
 
 const routes: Routes = [
   {
@@ -24,7 +26,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     SharedHeaderModule
   ],
-  declarations: [EntertainmentPage, DiningModalPage],
-  entryComponents: [DiningModalPage]
+  declarations: [EntertainmentPage, DiningModalPage, SportsConcertsModalPage, ExperiencesModalPage],
+  entryComponents: [DiningModalPage, SportsConcertsModalPage, ExperiencesModalPage]
 })
 export class EntertainmentPageModule {}

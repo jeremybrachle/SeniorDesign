@@ -7,7 +7,6 @@
 <br>
 
 
-
 <div text-center>
   <ion-slides padding-horizontal pager="true">
     <ion-slide>
@@ -74,5 +73,21 @@
 
 
 </div>
+
+<!-- testing new stuff -->
+
+<!-- <div (click)="loadPost(post)" padding-bottom *ngFor="let post of posts$ | async">
+    <button >Load post</button>
+    <div>
+        <h3 [innerHTML]="post.title.rendered"> </h3>
+        <p no-margin> <small> By {{post._embedded.author[0].name }} </small> </p>
+    </div>
+    <div *ngIf="post.featured_image">
+        <img padding-top class="featured-image" [src]="post.featured_image">
+    </div>
+    <div>
+        <div [innerHTML]="post.excerpt.rendered"></div>
+    </div>
+</div> -->
 
 </ion-content>

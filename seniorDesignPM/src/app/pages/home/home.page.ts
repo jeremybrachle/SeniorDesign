@@ -11,7 +11,7 @@ import { switchMap } from "rxjs/operators";
   styleUrls: ['home.page.scss'],
 })
 
-export class HomePage { //implements OnInit
+export class HomePage implements OnInit{ //implements OnInit
 
   constructor(private route: ActivatedRoute, private router: Router, private WpService: WpDBService){}
   
@@ -21,15 +21,15 @@ export class HomePage { //implements OnInit
     this.router.navigate(["/posts", post.id]);
   }
 
-  // ngOnInit(){
-  //   this.posts$ = this.route.paramMap.pipe(
-  //     switchMap(
-  //       (params: ParamMap) => 
-  //         params.get("category")
-  //           ? this.WpService.fetchPostsByCategory(params.get("category"))
-  //           : this.WpService.getPosts())
-  //   );
-  // }
+  ngOnInit(){
+    this.posts$ = this.route.paramMap.pipe(
+      switchMap(
+        (params: ParamMap) => 
+          params.get("category")
+            ? this.WpService.fetchPostsByCategory(params.get("category"))
+            : this.WpService.getPosts())
+    );
+  }
 
   // ngOnInit() {
   //   this.posts$ = this.route.paramMap.pipe(

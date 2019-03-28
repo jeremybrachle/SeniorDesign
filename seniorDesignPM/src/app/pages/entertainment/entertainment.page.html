@@ -1,4 +1,10 @@
-<app-heading></app-heading>
+<!-- <app-heading></app-heading> -->
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Add-Ons</ion-title>
+      <ion-back-button text="Select Car" ></ion-back-button>
+    </ion-toolbar>
+  </ion-header>
 
 <ion-content padding>
   <div text-center>
@@ -25,8 +31,9 @@
   </div>
 
   <ion-toolbar>
-    <ion-button color="light" (click)="cancel()" [routerLink]="['/home']">Cancel</ion-button>
-    <ion-button color="customMedBlue" slot="primary">Continue</ion-button>
+    <!-- <ion-button color="light" (click)="cancel()" [routerLink]="['/home']">Cancel Order</ion-button> -->
+    <ion-button color="light" (click)="presentCancelModal()">Cancel Order</ion-button>
+    <ion-button color="customMedBlue" slot="primary">Finish Order</ion-button>
   </ion-toolbar>
 
 </ion-content>

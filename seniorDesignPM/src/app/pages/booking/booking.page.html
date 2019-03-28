@@ -5,15 +5,18 @@
     </ion-title>
   </ion-toolbar>
 </ion-header> -->
-<app-heading></app-heading>
+<!-- <app-heading></app-heading> -->
+<ion-header>
+  <ion-toolbar>
+      <ion-title>Booking</ion-title>
+      <ion-back-button text="Cancel" ></ion-back-button>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content padding class="has-header">
-  <br>
   <div text-center>
     <span class="text-muted">DALLAS LUXURY & EXOTIC RENTALS</span>
-    <div (click)="presentModal()" style="border-top:solid; border-bottom:solid; background-color:grey">
-      <span>ⓘ QUALIFICATIONS TO RENT A CAR</span>
-    </div>
+    
   </div>
 
   <!-- This area will need to be HEAVILY edited in coming drops -->
@@ -30,7 +33,15 @@
   </div>
 
   <!-- Area above will need SERIOUS work in coming drops -->
-  <div text-center>
+  <!-- <div text-center>
     <ion-button size="large" color="light" style="width:50%;" [routerLink]="['/home']">Back</ion-button>
-  </div>
+  </div> -->
+
+
 </ion-content>
+
+<ion-footer>
+    <div (click)="presentModal()" style="border-top:solid; border-bottom:solid; background-color:grey; padding: 0.5em;">
+        <span>QUALIFICATIONS TO RENT A CAR ⓘ </span>
+      </div>
+</ion-footer>

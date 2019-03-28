@@ -13,7 +13,8 @@ const routes: Routes = [
 
   { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule' },  { path: 'dining-modal', loadChildren: './pages/Modals/dining-modal/dining-modal.module#DiningModalPageModule' },
   { path: 'sports-concerts-modal', loadChildren: './pages/Modals/sports-concerts-modal/sports-concerts-modal.module#SportsConcertsModalPageModule' },
-  { path: 'experiences-modal', loadChildren: './pages/Modals/experiences-modal/experiences-modal.module#ExperiencesModalPageModule' }
+  { path: 'experiences-modal', loadChildren: './pages/Modals/experiences-modal/experiences-modal.module#ExperiencesModalPageModule' },
+  { path: 'confirm-cancel', loadChildren: './pages/Modals/confirm-cancel/confirm-cancel.module#ConfirmCancelPageModule' }
 
 
 

@@ -172,6 +172,7 @@
 
   </ion-slide>
 
+
   <ion-slide>
     <ion-list no-lines>
       <form [formGroup]="paymentInfoSliderForm">
@@ -246,14 +247,22 @@
         <ion-item *ngIf="!paymentInfoSliderForm.controls.creditCardExpYear.valid  && (paymentInfoSliderForm.controls.creditCardExpYear.dirty || saveAttempt)">
           <p>Please select a valid year.</p>
         </ion-item>
+      </form>
+    </ion-list>
+  </ion-slide>
 
-        <h5> Billing Address</h5>
 
+  <ion-slide>
+    <ion-list no-lines>
+      <form [formGroup]="billingAddressInfoSliderForm">
+        <h6> Billing Address</h6>
+
+        <!-- don't think we need this part -->
         <!-- billing address same as mailing address -->
-        <ion-item>
+        <!-- <ion-item>
           <ion-label> Same as mailing address.</ion-label>
           <ion-checkbox (click)="toggleCheckbox()"></ion-checkbox>
-        </ion-item>
+        </ion-item> -->
 
         <div *ngIf="!showItem">
 
@@ -505,7 +514,6 @@
 
       </form>
     </ion-list>
-
   </ion-slide>
 
 

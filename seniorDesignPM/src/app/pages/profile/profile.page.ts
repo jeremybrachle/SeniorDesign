@@ -14,9 +14,12 @@ export class ProfilePage implements OnInit {
   personalInfoSliderForm: FormGroup;
   paymentInfoSliderForm: FormGroup;
   driverInfoSliderForm: FormGroup;
+  billingAddressInfoSliderForm: FormGroup;
 
   saveAttempt: boolean = false;
   showItem: boolean;
+
+  slideIndex: number;
 
   constructor(public navCntrl: NavController, private formBuilder: FormBuilder) {
     this.personalInfoSliderForm = formBuilder.group({

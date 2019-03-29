@@ -10,6 +10,7 @@ import { SharedHeaderModule } from '../../shared-header/shared-header.module';
 import { DiningModalPage } from '../Modals/dining-modal/dining-modal.page';
 import { SportsConcertsModalPage } from '../Modals/sports-concerts-modal/sports-concerts-modal.page';
 import { ExperiencesModalPage } from '../Modals/experiences-modal/experiences-modal.page';
+import { NightLifeModalPage } from '../Modals/night-life-modal/night-life-modal.page';
 
 const routes: Routes = [
   {
@@ -26,7 +27,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     SharedHeaderModule
   ],
-  declarations: [EntertainmentPage, DiningModalPage, SportsConcertsModalPage, ExperiencesModalPage],
-  entryComponents: [DiningModalPage, SportsConcertsModalPage, ExperiencesModalPage]
+  declarations: [EntertainmentPage, NightLifeModalPage, DiningModalPage, SportsConcertsModalPage, ExperiencesModalPage],
+  entryComponents: [DiningModalPage, NightLifeModalPage, SportsConcertsModalPage, ExperiencesModalPage]
 })
 export class EntertainmentPageModule {}

@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { DiningModalPage } from '../Modals/dining-modal/dining-modal.page';
 import { SportsConcertsModalPage } from '../Modals/sports-concerts-modal/sports-concerts-modal.page';
 import { ExperiencesModalPage } from '../Modals/experiences-modal/experiences-modal.page';
+import { NightLifeModalPage } from '../Modals/night-life-modal/night-life-modal.page'
 
 @Component({
   selector: 'app-entertainment',
@@ -46,6 +47,18 @@ export class EntertainmentPage implements OnInit {
   async presentExperiencesModal() {
     const modal = await this.modalController.create({
       component: ExperiencesModalPage
+    });
+
+    await modal.present();
+
+    const {data} = await modal.onWillDismiss();
+    console.log(data);
+    this.numExperiences = data.numSelected;
+  }
+
+  async presentNightLifeModal() {
+    const modal = await this.modalController.create({
+      component: NightLifeModalPage
     });
 
     await modal.present();

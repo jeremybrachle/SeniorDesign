@@ -33,7 +33,7 @@
   <ion-toolbar>
     <!-- <ion-button color="light" (click)="cancel()" [routerLink]="['/home']">Cancel Order</ion-button> -->
     <ion-button color="light" (click)="presentCancelModal()">Cancel Order</ion-button>
-    <ion-button color="customMedBlue" slot="primary">Finish Order</ion-button>
+    <ion-button color="customMedBlue" slot="primary" [routerLink]="['/confirmation']">Finish Order</ion-button>
   </ion-toolbar>
 
 </ion-content>

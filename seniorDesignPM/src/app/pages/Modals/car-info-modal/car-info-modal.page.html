@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Car Info</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding text-center>
+    {{carData}}
+    <br>
+    <ion-slides padding-horizontal pager="true">
+        <ion-slide>
+            <ion-img src="../../../../assets/images/vantage1.jpg"></ion-img>
+        </ion-slide>
+        <ion-slide>
+            <ion-img src="../../../../assets/images/vantage2.jpg"></ion-img>
+        </ion-slide>
+        <ion-slide>
+            <ion-img src="../../../../assets/images/vantage3.jpg"></ion-img>
+        </ion-slide>
+      </ion-slides>
+</ion-content>
+
+<ion-footer text-center>
+    <ion-button (click)="dismiss()" color="customDarkGrey">Close</ion-button>
+</ion-footer>
+
+

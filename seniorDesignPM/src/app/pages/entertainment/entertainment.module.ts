@@ -11,6 +11,7 @@ import { DiningModalPage } from '../Modals/dining-modal/dining-modal.page';
 import { SportsConcertsModalPage } from '../Modals/sports-concerts-modal/sports-concerts-modal.page';
 import { ExperiencesModalPage } from '../Modals/experiences-modal/experiences-modal.page';
 import { ConfirmCancelPage } from './../Modals/confirm-cancel/confirm-cancel.page';
+import { NightLifeModalPage } from '../Modals/night-life-modal/night-life-modal.page';
 
 const routes: Routes = [
   {
@@ -28,8 +29,8 @@ const routes: Routes = [
     SharedHeaderModule
   ],
   declarations: [EntertainmentPage, DiningModalPage, SportsConcertsModalPage, ExperiencesModalPage,
-  ConfirmCancelPage],
+  ConfirmCancelPage, NightLifeModalPage],
   entryComponents: [DiningModalPage, SportsConcertsModalPage, ExperiencesModalPage,
-  ConfirmCancelPage]
+  ConfirmCancelPage, NightLifeModalPage]
 })
 export class EntertainmentPageModule {}

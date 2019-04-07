@@ -16,7 +16,7 @@ export class EntertainmentPage implements OnInit {
   numSportsConcerts: any = 0;
   numExperiences: any = 0;
 
-  
+
   constructor(public modalController: ModalController) { }
 
   ngOnInit() {

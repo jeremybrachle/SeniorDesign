@@ -15,7 +15,6 @@ export class SportsConcertsModalPage implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.sportsConcertsArr);
   }
 
   // dismiss the modal and return the number of options selected

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { EntertainmentItem } from './../../../models/entertainment-item-model';
 
 @Component({
   selector: 'app-dining-modal',
@@ -7,7 +8,10 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./dining-modal.page.scss'],
 })
 export class DiningModalPage implements OnInit {
-  numSelected: Number = 0;
+  // numSelected: Number = 0;
+
+  // input for the array of dining options
+  @Input() diningArr;
 
   constructor(public modalController: ModalController) {
   }
@@ -15,15 +19,36 @@ export class DiningModalPage implements OnInit {
   ngOnInit() {
   }
 
-  // currently hardcoded with 1, change this later!!
-  dismissWithData() {
-    this.numSelected = 1;
-    // console.log(this.numSelected);
-    this.modalController.dismiss({numSelected: this.numSelected});
+  // dismiss the modal and return the number of options selected
+  dismiss() {
+    // return the number of options selected (could be 0)
+    this.modalController.dismiss({numSelected: this.getNumSelected()});
   }
 
-  dismiss() {
-    this.modalController.dismiss();
+  // get the number of dining options selected
+  getNumSelected() {
+    let count = 0;
+    for (let i = 0; i < this.diningArr.length; i ++) {
+      if (this.diningArr[i].isSelected === true) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+
+  // function to add current item to list of selected options
+  addSelected(index) {
+    // add the item at the index selected
+    this.diningArr[index].selectOption();
+  }
+
+  // function to remove current item from list of selected options
+  removeSelected(index) {
+    // deselect the item at the index selected
+    console.log(this.diningArr[index]['isSelected']);
+    this.diningArr[index].cancelOption();
+    console.log(this.diningArr[index]['isSelected']);
   }
 
 }

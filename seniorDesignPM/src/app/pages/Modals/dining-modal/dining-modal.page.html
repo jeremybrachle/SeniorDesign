@@ -2,7 +2,12 @@
     <ion-toolbar>
       <ion-title>Dining</ion-title>
       <ion-buttons (click)="dismiss()" slot="primary">
-        <ion-button style="color: #3881ff">Cancel</ion-button>
+        <div *ngIf="getNumSelected() > 0; else noneSelected">
+          <ion-button style="color: #3881ff">Done</ion-button>
+        </div>
+        <ng-template #noneSelected>
+          <ion-button style="color: #3881ff">Cancel</ion-button>
+        </ng-template>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
@@ -15,27 +20,21 @@
 
   <br>
 
-  <div text-center>
-      <div style="border: 1px solid lightgray; border-radius: 1em;">
-        <ion-img src="https://news.cruise1st.co.uk/wp-content/uploads/2017/07/Fotolia_42404790_S.jpg">
-        </ion-img>
-        <h6>Ristorante Lorem</h6>
-        <p>$80.00 per plate</p>
-        <ion-button color="customDarkGrey" (click)="dismissWithData()">Add to Order</ion-button>
-      </div>
-  </div>
-
-  <br>
-
-  <div text-center>
-    <div (click)="dismissWithData()">
-      <div style="border: 1px solid lightgray; border-radius: 1em;">
-        <ion-img src="https://luxtravelguy.com/wp-content/uploads/2015/11/Deans-Kitchen-11-e1447052021382.jpg">
-        </ion-img>
-        <h6>Cafe Ipsum</h6>
-        <p>$60.00 per plate</p>
-      </div>
+  <!-- show the dining options -->
+  <div *ngFor="let opt of diningArr">
+    <div text-center style="border: 1px solid lightgray; border-radius: 1.2em;">
+        <img src="{{opt['imgUrl']}}" style="border-radius: 1em;">
+        <h6>{{opt['name']}}</h6>
+        <p>${{opt['price']}} per plate</p>
+        <!-- check if the item has been added yet -->
+        <div *ngIf="opt['isSelected'] === false; else alreadySelected">
+          <ion-button color="customDarkGrey" (click)="addSelected(diningArr.indexOf(opt))">Add to Order</ion-button>
+        </div>
+        <ng-template #alreadySelected>
+          <ion-button color="light" (click)="removeSelected(diningArr.indexOf(opt))">Remove from Order</ion-button>
+        </ng-template>
     </div>
+    <br>
   </div>
 
 

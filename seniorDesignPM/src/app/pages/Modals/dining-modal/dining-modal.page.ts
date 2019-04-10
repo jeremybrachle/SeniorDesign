@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { EntertainmentItem } from './../../../models/entertainment-item-model';
 
 @Component({
   selector: 'app-dining-modal',

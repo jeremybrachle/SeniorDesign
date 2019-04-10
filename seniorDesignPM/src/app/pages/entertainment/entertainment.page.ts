@@ -120,7 +120,7 @@ export class EntertainmentPage implements OnInit {
     const modal = await this.modalController.create({
       component: SportsConcertsModalPage,
       // send in the sports/concerts options array
-      componentProps: {sportConcertsArr: this.allSportsConcertsOptions}
+      componentProps: {sportsConcertsArr: this.allSportsConcertsOptions}
     });
 
     // present the modal

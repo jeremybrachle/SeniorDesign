@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -7,23 +7,47 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./sports-concerts-modal.page.scss'],
 })
 export class SportsConcertsModalPage implements OnInit {
-  numSelected: Number = 0;
+
+  // input for the array of sports/concets options
+  @Input() sportsConcertsArr;
 
   constructor(public modalController: ModalController) {
   }
 
   ngOnInit() {
+    console.log(this.sportsConcertsArr);
   }
 
-  // currently hardcoded with 1, change this later!!
-  dismissWithData() {
-    this.numSelected = 1;
-    // console.log(this.numSelected);
-    this.modalController.dismiss({numSelected: this.numSelected});
-  }
-
+  // dismiss the modal and return the number of options selected
   dismiss() {
-    this.modalController.dismiss();
+    // return the number of options selected (could be 0)
+    this.modalController.dismiss({numSelected: this.getNumSelected()});
+  }
+
+  // get the number of sports/concerts options selected
+  getNumSelected() {
+    let count = 0;
+    for (let i = 0; i < this.sportsConcertsArr.length; i ++) {
+      if (this.sportsConcertsArr[i].isSelected === true) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+
+  // function to add current item to list of selected options
+  addSelected(index) {
+    // add the item at the index selected
+    this.sportsConcertsArr[index].selectOption();
+  }
+
+  // function to remove current item from list of selected options
+  removeSelected(index) {
+    // deselect the item at the index selected
+    console.log(this.sportsConcertsArr[index]['isSelected']);
+    this.sportsConcertsArr[index].cancelOption();
+    console.log(this.sportsConcertsArr[index]['isSelected']);
   }
 
 }

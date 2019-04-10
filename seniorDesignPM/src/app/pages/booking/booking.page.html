@@ -15,7 +15,7 @@
 
 
 
-<ion-content padding-horizontal class="has-header">
+<ion-content class="has-header">
   
 
   <!-- <div text-center>
@@ -31,18 +31,18 @@
 
   
 
-  <ion-item-divider style="background-color: white;" sticky>
+  <ion-item-divider style="background-color: white; border-bottom-style: solid; border-bottom-width: 0.09em; border-bottom-color: lightgray;" sticky>
       <h4 text-center>
           <span style="color: #000035">EXOTIC CAR RENTALS IN DALLAS</span>
         </h4>
   </ion-item-divider>
 
-
+<div padding-horizontal>
     <!-- <div style="border:1px solid #021a40" (click)="bookNow()"> -->
     <div text-center>
       <ion-img src="../../../assets/images/vantage.png" (click)="carInfo('ASTON MARTIN VANTAGE')"></ion-img>
       <h6>ASTON MARTIN VANTAGE</h6>
-      <!-- <p>Price Per Day: $799.00</p> -->
+      <hr color="lightgray">
 
       <ion-toolbar>
           <p>Price Per Day: $799.00</p>
@@ -54,6 +54,7 @@
     <div text-center>
         <ion-img src="../../../assets/images/ferrari.png" (click)="carInfo('ASTON MARTIN VANTAGE')"></ion-img>
         <h6>FERRARI 488</h6>
+        <hr color="lightgray">
         <ion-toolbar>
             <p>Price Per Day: $1,499.00</p>
           <ion-button color="customMedBlue" slot="primary" (click)="bookNow()">Reserve Now</ion-button>
@@ -66,7 +67,7 @@
     <ion-button size="large" color="light" style="width:50%;" [routerLink]="['/home']">Back</ion-button>
   </div> -->
 
-
+</div>
 </ion-content>
 
 <ion-footer>

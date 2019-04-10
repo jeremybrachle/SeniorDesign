@@ -8,8 +8,9 @@ import { ModalController } from '@ionic/angular';
 })
 export class SportsConcertsModalPage implements OnInit {
 
-  // input for the array of sports/concets options
+  // input for the array of sports/concets options and the cart
   @Input() sportsConcertsArr;
+  @Input() cart;
 
   constructor(public modalController: ModalController) {
   }
@@ -39,14 +40,14 @@ export class SportsConcertsModalPage implements OnInit {
   addSelected(index) {
     // add the item at the index selected
     this.sportsConcertsArr[index].selectOption();
+    this.cart.addToCart(this.sportsConcertsArr[index]);
   }
 
   // function to remove current item from list of selected options
   removeSelected(index) {
     // deselect the item at the index selected
-    console.log(this.sportsConcertsArr[index]['isSelected']);
     this.sportsConcertsArr[index].cancelOption();
-    console.log(this.sportsConcertsArr[index]['isSelected']);
+    this.cart.removeFromCart(this.sportsConcertsArr[index]);
   }
 
 }

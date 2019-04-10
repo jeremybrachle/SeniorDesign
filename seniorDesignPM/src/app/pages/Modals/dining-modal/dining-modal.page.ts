@@ -9,8 +9,9 @@ import { ModalController } from '@ionic/angular';
 export class DiningModalPage implements OnInit {
   // numSelected: Number = 0;
 
-  // input for the array of dining options
+  // input for the array of dining options and the cart
   @Input() diningArr;
+  @Input() cart;
 
   constructor(public modalController: ModalController) {
   }
@@ -40,14 +41,14 @@ export class DiningModalPage implements OnInit {
   addSelected(index) {
     // add the item at the index selected
     this.diningArr[index].selectOption();
+    this.cart.addToCart(this.diningArr[index]);
   }
 
   // function to remove current item from list of selected options
   removeSelected(index) {
     // deselect the item at the index selected
-    console.log(this.diningArr[index]['isSelected']);
     this.diningArr[index].cancelOption();
-    console.log(this.diningArr[index]['isSelected']);
+    this.cart.removeFromCart(this.diningArr[index]);
   }
 
 }

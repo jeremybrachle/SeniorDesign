@@ -6,6 +6,7 @@ import { ExperiencesModalPage } from '../Modals/experiences-modal/experiences-mo
 import { ConfirmCancelPage } from './../Modals/confirm-cancel/confirm-cancel.page';
 import { NightLifeModalPage } from '../Modals/night-life-modal/night-life-modal.page';
 import { EntertainmentItem } from './../../models/entertainment-item-model';
+import { EntertainmentCart } from './../../models/entertainment-cart-model';
 
 @Component({
   selector: 'app-entertainment',
@@ -26,6 +27,12 @@ export class EntertainmentPage implements OnInit {
   allAccomodationsOptions = new Array;
   allNightLifeOptions = new Array;
   allExperiencesOptions = new Array;
+
+  // make a cart object for holding only the selected entertainment options
+  // first make an array of entertainment items
+  // cartItems = new Array;
+  // customerCart = new EntertainmentCart(this.cartItems);
+  customerCart = new EntertainmentCart(new Array);
 
   // constructor (make a modal controller)
   constructor(public modalController: ModalController) { }
@@ -93,6 +100,12 @@ export class EntertainmentPage implements OnInit {
     this.allExperiencesOptions.push(experiencesOpt1);
 
 
+
+    // this.customerCart.addToCart(diningOpt1);
+    // this.customerCart.addToCart(diningOpt2);
+    // console.log(this.customerCart);
+    // console.log(this.customerCart.getCartLength());
+
   }
 
   // code for modals:
@@ -102,7 +115,10 @@ export class EntertainmentPage implements OnInit {
     const modal = await this.modalController.create({
       component: DiningModalPage,
       // send in the dining options array
-      componentProps: {diningArr: this.allDiningOptions}
+      componentProps: {
+        diningArr: this.allDiningOptions,
+        cart: this.customerCart
+      }
     });
 
     // present the modal
@@ -120,7 +136,10 @@ export class EntertainmentPage implements OnInit {
     const modal = await this.modalController.create({
       component: SportsConcertsModalPage,
       // send in the sports/concerts options array
-      componentProps: {sportsConcertsArr: this.allSportsConcertsOptions}
+      componentProps: {
+        sportsConcertsArr: this.allSportsConcertsOptions,
+        cart: this.customerCart
+      }
     });
 
     // present the modal
@@ -138,7 +157,10 @@ export class EntertainmentPage implements OnInit {
     const modal = await this.modalController.create({
       component: NightLifeModalPage,
       // send in the night life options array
-      componentProps: {nightLifeArr: this.allNightLifeOptions}
+      componentProps: {
+        nightLifeArr: this.allNightLifeOptions,
+        cart: this.customerCart
+      }
     });
 
     // present the modal
@@ -156,7 +178,10 @@ export class EntertainmentPage implements OnInit {
     const modal = await this.modalController.create({
       component: ExperiencesModalPage,
       // send in the experiences options array
-      componentProps: {experiencesArr: this.allExperiencesOptions}
+      componentProps: {
+        experiencesArr: this.allExperiencesOptions,
+        cart: this.customerCart
+      }
     });
 
     // present the modal

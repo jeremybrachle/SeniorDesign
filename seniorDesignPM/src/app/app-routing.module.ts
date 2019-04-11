@@ -17,7 +17,8 @@ const routes: Routes = [
   { path: 'experiences-modal', loadChildren: './pages/Modals/experiences-modal/experiences-modal.module#ExperiencesModalPageModule' },
   { path: 'confirm-cancel', loadChildren: './pages/Modals/confirm-cancel/confirm-cancel.module#ConfirmCancelPageModule' },
   { path: 'car-info-modal', loadChildren: './pages/Modals/car-info-modal/car-info-modal.module#CarInfoModalPageModule' },
-  { path: 'confirmation', loadChildren: './pages/confirmation/confirmation.module#ConfirmationPageModule' }
+  { path: 'confirmation', loadChildren: './pages/confirmation/confirmation.module#ConfirmationPageModule' },  { path: 'accommodations-modal', loadChildren: './pages/Modals/accommodations-modal/accommodations-modal.module#AccommodationsModalPageModule' }
+
 
 
 

@@ -13,16 +13,17 @@
       Dining
       <ion-badge class="entertainment-badge" color="customMedBlue" *ngIf="numDining > 0">{{numDining}}</ion-badge>
     </ion-button>
-
     <ion-button class="entertainment-button" (click)="presentSportsConcertsModal()" expand="block" color="customDarkGrey">
       Sports/Concerts
       <ion-badge class="entertainment-badge" color="customMedBlue" *ngIf="numSportsConcerts > 0">{{numSportsConcerts}}</ion-badge>
     </ion-button>
-    <ion-button expand="block" color="customDarkGrey">
-      Accomodations
+    <ion-button class="entertainment-button" (click)="presentAccommodationsModal()" expand="block" color="customDarkGrey">
+      Accommodations
+      <ion-badge class="entertainment-badge" color="customMedBlue" *ngIf="numAccommodations > 0">{{numAccommodations}}</ion-badge>
     </ion-button>
     <ion-button class="entertainment-button" (click)="presentNightLifeModal()" expand="block" color="customDarkGrey">
       Night Life
+      <ion-badge class="entertainment-badge" color="customMedBlue" *ngIf="numNightLife > 0">{{numNightLife}}</ion-badge>
     </ion-button>
     <ion-button class="entertainment-button" (click)="presentExperiencesModal()" expand="block" color="customDarkGrey">
       Experiences

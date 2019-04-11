@@ -1,3 +1,4 @@
+import { AccommodationsModalPage } from './../Modals/accommodations-modal/accommodations-modal.page';
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { DiningModalPage } from '../Modals/dining-modal/dining-modal.page';
@@ -17,14 +18,14 @@ export class EntertainmentPage implements OnInit {
   // variables for the number of options selected for each type of add on
   numDining: any = 0;
   numSportsConcerts: any = 0;
-  numAccomodations: any = 0;
+  numAccommodations: any = 0;
   numNightLife: any = 0;
   numExperiences: any = 0;
 
   // entertainment option arrays
   allDiningOptions = new Array;
   allSportsConcertsOptions = new Array;
-  allAccomodationsOptions = new Array;
+  allAccommodationsOptions = new Array;
   allNightLifeOptions = new Array;
   allExperiencesOptions = new Array;
 
@@ -77,7 +78,7 @@ export class EntertainmentPage implements OnInit {
       'yeet',
       false
     );
-    this.allAccomodationsOptions.push(accomodationsOpt1);
+    this.allAccommodationsOptions.push(accomodationsOpt1);
 
     // 4. night life options
     let nightLifeOpt1 = new EntertainmentItem(
@@ -152,6 +153,27 @@ export class EntertainmentPage implements OnInit {
     this.numSportsConcerts = data.numSelected;
   }
 
+  // 3. accommodations modal
+  async presentAccommodationsModal() {
+    const modal = await this.modalController.create({
+      component: AccommodationsModalPage,
+      // send in the accommodations options array
+      componentProps: {
+        accommodationsArr: this.allAccommodationsOptions,
+        cart: this.customerCart
+      }
+    });
+
+    // present the modal
+    await modal.present();
+
+    // check the response for what options are picked (if any)
+    const {data} = await modal.onWillDismiss();
+
+    // set the number of night life options selected
+    this.numAccommodations = data.numSelected;
+  }
+
   // 4. night life modal
   async presentNightLifeModal() {
     const modal = await this.modalController.create({
@@ -191,14 +213,14 @@ export class EntertainmentPage implements OnInit {
     const {data} = await modal.onWillDismiss();
 
     // set the number of dining options selected
-    this.numExperiences = data.numExperiences;
+    this.numExperiences = data.numSelected;
   }
 
   // reset the values of the variables for selected options
   cancel() {
     this.numDining = 0;
     this.numSportsConcerts = 0;
-    this.numAccomodations = 0;
+    this.numAccommodations = 0;
     this.numNightLife = 0;
     this.numExperiences = 0;
   }

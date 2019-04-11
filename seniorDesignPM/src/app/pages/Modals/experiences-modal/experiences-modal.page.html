@@ -1,21 +1,43 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Select Experience</ion-title>
+    <ion-title text-center>Experiences</ion-title>
     <ion-buttons (click)="dismiss()" slot="primary">
-      <ion-button style="color: #3881ff">Cancel</ion-button>
+      <div *ngIf="getNumSelected() > 0; else noneSelected">
+        <ion-button style="color: #3881ff">Done</ion-button>
+      </div>
+      <ng-template #noneSelected>
+        <ion-button style="color: #3881ff">Cancel</ion-button>
+      </ng-template>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-<div text-center>
-  <div (click)="dismissWithData()">
-    <div style="border:1px solid #021a40">
-      <ion-img src="https://epichelicopters.com/assets/site_images/_380x215_crop_center-center_100/dallas-fort-worth-aerial-video_0.jpg">
-      </ion-img>
-      <h6>Sample Helicopter Trip</h6>
-      <p>$ 1000.00</p>
-    </div>
+
+<h3>
+  Select Experiences Add-Ons
+</h3>
+
+<br>
+
+<!-- show the experiences options -->
+<div *ngFor="let opt of experiencesArr">
+  <div text-center style="border: 1px solid lightgray; border-radius: 1.2em;">
+      <img src="{{opt['imgUrl']}}" style="border-radius: 1em;">
+      <h6>{{opt['name']}}</h6>
+      <p>${{opt['price']}}</p>
+      <!-- check if the item has been added yet -->
+      <div *ngIf="opt['isSelected'] === false; else alreadySelected">
+        <ion-button color="customDarkGrey" (click)="addSelected(experiencesArr.indexOf(opt))">Add to Order</ion-button>
+      </div>
+      <ng-template #alreadySelected>
+        <ion-button color="light" (click)="removeSelected(experiencesArr.indexOf(opt))">Remove from Order</ion-button>
+      </ng-template>
   </div>
+  <br>
 </div>
+
+
 </ion-content>
+
+

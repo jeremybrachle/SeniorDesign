@@ -2,15 +2,15 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-night-life-modal',
-  templateUrl: './night-life-modal.page.html',
-  styleUrls: ['./night-life-modal.page.scss'],
+  selector: 'app-accommodations-modal',
+  templateUrl: './accommodations-modal.page.html',
+  styleUrls: ['./accommodations-modal.page.scss'],
 })
-export class NightLifeModalPage implements OnInit {
+export class AccommodationsModalPage implements OnInit {
   // numSelected: Number = 0;
 
-  // input for the array of nightLife options and the cart
-  @Input() nightLifeArr;
+  // input for the array of accommodations options and the cart
+  @Input() accommodationsArr;
   @Input() cart;
 
   constructor(public modalController: ModalController) {
@@ -25,11 +25,11 @@ export class NightLifeModalPage implements OnInit {
     this.modalController.dismiss({numSelected: this.getNumSelected()});
   }
 
-  // get the number of nightLife options selected
+  // get the number of accommodations options selected
   getNumSelected() {
     let count = 0;
-    for (let i = 0; i < this.nightLifeArr.length; i ++) {
-      if (this.nightLifeArr[i].isSelected === true) {
+    for (let i = 0; i < this.accommodationsArr.length; i ++) {
+      if (this.accommodationsArr[i].isSelected === true) {
         count++;
       }
     }
@@ -40,15 +40,15 @@ export class NightLifeModalPage implements OnInit {
   // function to add current item to list of selected options
   addSelected(index) {
     // add the item at the index selected
-    this.nightLifeArr[index].selectOption();
-    this.cart.addToCart(this.nightLifeArr[index]);
+    this.accommodationsArr[index].selectOption();
+    this.cart.addToCart(this.accommodationsArr[index]);
   }
 
   // function to remove current item from list of selected options
   removeSelected(index) {
     // deselect the item at the index selected
-    this.nightLifeArr[index].cancelOption();
-    this.cart.removeFromCart(this.nightLifeArr[index]);
+    this.accommodationsArr[index].cancelOption();
+    this.cart.removeFromCart(this.accommodationsArr[index]);
   }
 
 }

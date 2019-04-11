@@ -8,6 +8,7 @@ import { ConfirmCancelPage } from './../Modals/confirm-cancel/confirm-cancel.pag
 import { NightLifeModalPage } from '../Modals/night-life-modal/night-life-modal.page';
 import { EntertainmentItem } from './../../models/entertainment-item-model';
 import { EntertainmentCart } from './../../models/entertainment-cart-model';
+import { OrderService } from '../../services/order.service';
 
 @Component({
   selector: 'app-entertainment',
@@ -36,7 +37,10 @@ export class EntertainmentPage implements OnInit {
   customerCart = new EntertainmentCart(new Array);
 
   // constructor (make a modal controller)
-  constructor(public modalController: ModalController) { }
+  constructor(
+    public modalController: ModalController,
+    private orderService: OrderService
+    ) { }
 
   // on initialization, get the data
   ngOnInit() {
@@ -236,6 +240,11 @@ export class EntertainmentPage implements OnInit {
     await modal.onWillDismiss();
     // reset the variables
     this.cancel();
+  }
+
+  // function to send the entertainment cart to the confirmation page
+  sendToConfirmation(givenCart: EntertainmentCart) {
+    this.orderService.setEntertainmentCart(givenCart);
   }
 
 }

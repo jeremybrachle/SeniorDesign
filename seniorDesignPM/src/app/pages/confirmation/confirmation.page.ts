@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderService } from '../../services/order.service';
+import { EntertainmentCart } from '../../models/entertainment-cart-model';
 
 @Component({
   selector: 'app-confirmation',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmationPage implements OnInit {
 
-  constructor() { }
+  // objects for the final order confirmation
+  finalEntertainmentOpts: EntertainmentCart;
+
+  constructor(
+    private orderService: OrderService
+  ) { }
 
   ngOnInit() {
+    this.finalEntertainmentOpts = this.orderService.getEntertainmentCart();
+    console.log(this.finalEntertainmentOpts);
   }
 
 }

@@ -25,4 +25,17 @@ export class EntertainmentCart {
     getCartLength() {
         return this.items.length;
     }
+
+    // get the cart item at a specified index
+    getItemByIndex(index: number) {
+        return this.items[index];
+    }
+
+    // remove all options from cart
+    removeOptions() {
+        let currLength: number = this.items.length;
+        for (let i = 0; i < currLength; i ++) {
+            this.items.pop();
+        }
+    }
 }

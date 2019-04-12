@@ -5,18 +5,12 @@
 </ion-header>
 
 <ion-content padding text-center>
-    {{carData}}
+    {{carData.name}}
     <br>
     <ion-slides padding-horizontal pager="true">
-        <ion-slide>
-            <ion-img src="../../../../assets/images/vantage1.jpg"></ion-img>
-        </ion-slide>
-        <ion-slide>
-            <ion-img src="../../../../assets/images/vantage2.jpg"></ion-img>
-        </ion-slide>
-        <ion-slide>
-            <ion-img src="../../../../assets/images/vantage3.jpg"></ion-img>
-        </ion-slide>
+      <ion-slide *ngFor="let img of carData.allImgArray">
+        <ion-img src="{{img}}"></ion-img>
+      </ion-slide>
       </ion-slides>
 </ion-content>
 

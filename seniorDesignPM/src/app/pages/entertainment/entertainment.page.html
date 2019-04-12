@@ -32,12 +32,8 @@
   </div>
 
   <ion-toolbar>
-    <ion-button color="light" (click)="presentCancelModal()">Cancel Order</ion-button>
-    <ion-button color="customMedBlue" slot="primary" (click)="sendToConfirmation(customerCart)" [routerLink]="['/confirmation']">Finish Order</ion-button>
+    <ion-button color="light" slot="start" (click)="presentCancelModal()">Cancel Order</ion-button>
+    <ion-button color="customMedBlue" slot="end" (click)="sendToConfirmation(customerCart)" [routerLink]="['/confirmation']">Confirm</ion-button>
   </ion-toolbar>
-
-<ion-label>
-  Total Items in Cart: {{customerCart.getCartLength()}}
-</ion-label>
 
 </ion-content>

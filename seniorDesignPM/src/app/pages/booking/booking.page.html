@@ -17,16 +17,9 @@
 
 <ion-content class="has-header">
   
-
-  <!-- <div text-center>
-    <span class="text-muted">EXOTIC CAR RENTALS IN DALLAS</span>
-  </div> -->
-
-
-  <!-- This area will need to be HEAVILY edited in coming drops -->
-
-  <!-- <div text-center>
-    <h5>Select Car</h5>
+  <!-- <div *ngFor="let car of allCars">
+    {{car.name}}
+    <br>
   </div> -->
 
   
@@ -38,8 +31,20 @@
   </ion-item-divider>
 
 <div padding-horizontal>
-    <!-- <div style="border:1px solid #021a40" (click)="bookNow()"> -->
-    <div text-center>
+
+    <div text-center *ngFor="let car of allCars">
+        <ion-img src="{{car['defaultImg']}}" (click)="carInfo(car)"></ion-img>
+        <h6>{{car['name']}}</h6>
+        <hr color="lightgray">
+  
+        <ion-toolbar>
+            <p>Price Per Day: ${{car['price']}}</p>
+          <ion-button color="customMedBlue" slot="primary" (click)="bookNow()">Reserve Now</ion-button>
+        </ion-toolbar>
+    </div>
+
+
+    <!-- <div text-center>
       <ion-img src="../../../assets/images/vantage.png" (click)="carInfo('ASTON MARTIN VANTAGE')"></ion-img>
       <h6>ASTON MARTIN VANTAGE</h6>
       <hr color="lightgray">
@@ -59,19 +64,14 @@
             <p>Price Per Day: $1,499.00</p>
           <ion-button color="customMedBlue" slot="primary" (click)="bookNow()">Reserve Now</ion-button>
         </ion-toolbar>
-      </div>
+    </div> -->
   
-
-  <!-- Area above will need SERIOUS work in coming drops -->
-  <!-- <div text-center>
-    <ion-button size="large" color="light" style="width:50%;" [routerLink]="['/home']">Back</ion-button>
-  </div> -->
 
 </div>
 </ion-content>
 
 <ion-footer>
-    <div (click)="presentModal()" style="border-top:solid; border-bottom:solid; background-color:grey; padding: 0.5em;">
+    <div (click)="presentInfoModal()" style="border-top:solid; border-bottom:solid; background-color:grey; padding: 0.5em;">
         <span>QUALIFICATIONS TO RENT A CAR ⓘ </span>
       </div>
 </ion-footer>

@@ -50,14 +50,14 @@ export class EntertainmentPage implements OnInit {
     let diningOpt1 = new EntertainmentItem(
       'Ristorante Lorem',
       80.00,
-      'dining',
+      'Dining',
       'https://news.cruise1st.co.uk/wp-content/uploads/2017/07/Fotolia_42404790_S.jpg',
       false
     );
     let diningOpt2 = new EntertainmentItem(
       'Cafe Ipsum',
       60.00,
-      'dining',
+      'Dining',
       'https://luxtravelguy.com/wp-content/uploads/2015/11/Deans-Kitchen-11-e1447052021382.jpg',
       false
     );
@@ -68,7 +68,7 @@ export class EntertainmentPage implements OnInit {
     let sportsConcertsOpt1 = new EntertainmentItem(
       'Cowboys Game',
       1000.00,
-      'sportsConcerts',
+      'Sports/Concerts',
       'https://images-na.ssl-images-amazon.com/images/I/41HYP2h9tML._SL500_AC_SS350_.jpg',
       false
     );
@@ -78,7 +78,7 @@ export class EntertainmentPage implements OnInit {
     let accomodationsOpt1 = new EntertainmentItem(
       'yeet',
       0.00,
-      'accomodations',
+      'Accomodations',
       'yeet',
       false
     );
@@ -88,7 +88,7 @@ export class EntertainmentPage implements OnInit {
     let nightLifeOpt1 = new EntertainmentItem(
       'Sample Night Life',
       340.00,
-      'nightLife',
+      'Night Life',
       'https://media.timeout.com/images/100898801/630/472/image.jpg',
       false
     );
@@ -98,7 +98,7 @@ export class EntertainmentPage implements OnInit {
     let experiencesOpt1 = new EntertainmentItem(
       'Sample Helicopter Ride',
       1000.00,
-      'experiences',
+      'Experiences',
       'https://epichelicopters.com/assets/site_images/_380x215_crop_center-center_100/dallas-fort-worth-aerial-video_0.jpg',
       false
     );

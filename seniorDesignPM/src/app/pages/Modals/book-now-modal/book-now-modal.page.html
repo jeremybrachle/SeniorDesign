@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content padding>
+  <h4 text-center>{{carSelection.name}}</h4>
   <ion-item>
     <ion-label position="stacked">Pickup Location</ion-label>
     <ion-input></ion-input>
@@ -26,10 +27,8 @@
     <ion-input type="date"></ion-input>
     <ion-input type="time"></ion-input>
   </ion-item>
-
-
 </ion-content>
 
 <ion-footer text-center>
-  <ion-button (click)="dismiss()" color="customMedBlue" [routerLink]="['/entertainment']">Confirm</ion-button>
+  <ion-button (click)="confirmCar()" color="customMedBlue" [routerLink]="['/entertainment']">Confirm</ion-button>
 </ion-footer>

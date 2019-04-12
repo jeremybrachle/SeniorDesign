@@ -78,7 +78,7 @@ export class EntertainmentPage implements OnInit {
     let accomodationsOpt1 = new EntertainmentItem(
       'yeet',
       0.00,
-      'Accomodations',
+      'Accommodations',
       'yeet',
       false
     );

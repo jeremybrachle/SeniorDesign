@@ -6,6 +6,8 @@
 
 import { Injectable } from '@angular/core';
 import { EntertainmentCart } from '../models/entertainment-cart-model';
+import { Car } from '../models/car-model';
+import { Order } from '../models/order-model';
 
 
 // @Injectable({
@@ -16,10 +18,11 @@ export class OrderService {
 
   // attributes that will be needed:
   // car object:
-
+  myCar: Car;
   // entertainment cart:
   myEntertainmentCart: EntertainmentCart;
-
+  // history array
+  myHistory = new Array;
 
   constructor() {
     // set the defaults for these objects
@@ -27,13 +30,14 @@ export class OrderService {
    }
 
    // set the car to the order
-   setCar() {
-
+   setCar(givenCar: Car) {
+     // set the service's car to be the given car
+     this.myCar = givenCar;
    }
 
    // get the car for this order
    getCar() {
-
+    return this.myCar;
    }
 
    // set the entertainment cart
@@ -49,5 +53,20 @@ export class OrderService {
    // get the entertainment cart
    getEntertainmentCart() {
      return this.myEntertainmentCart;
+   }
+
+   // add order to history
+   addToHistory(currCar: Car, currEntertainment: EntertainmentCart) {
+    // make a hsitory object and add to the array
+    let currOrder = new Order(
+      currCar,
+      currEntertainment
+    )
+    this.myHistory.push(currOrder);
+   }
+
+   // get the array of history objects
+   getHistory() {
+     return this.myHistory;
    }
 }

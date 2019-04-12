@@ -24,7 +24,7 @@
           </ion-text>
         </td>
         <td class="cell2">
-          Aston Martin Vanquish
+          {{this.finalCar.name}}
         </td>
       </tr>
 
@@ -116,7 +116,7 @@
           </ion-text>
         </td>
         <td class="cell2">
-          $1200
+          ${{this.finalCar.price}}
         </td>
       </tr>
       <tr *ngFor="let opt of entertainmentArr">
@@ -151,7 +151,7 @@
       <ion-button color="light" slot="start" [routerLink]="['/entertainment']">
         Edit
       </ion-button>
-      <ion-button slot="end" color="customMedBlue">
+      <ion-button slot="end" [routerLink]="['/home']" (click)="completeOrder()" color="customMedBlue">
         Pay Now
       </ion-button>
     </ion-toolbar>

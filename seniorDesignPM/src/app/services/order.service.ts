@@ -9,10 +9,6 @@ import { EntertainmentCart } from '../models/entertainment-cart-model';
 import { Car } from '../models/car-model';
 import { Order } from '../models/order-model';
 
-
-// @Injectable({
-//   providedIn: 'root'
-// })
 @Injectable()
 export class OrderService {
 

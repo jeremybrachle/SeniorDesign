@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { UserManagementService } from '../../../services/user-management.service';
+import { Md5 } from 'ts-md5/dist/md5';
+
 
 @Component({
   selector: 'app-create-account',
@@ -9,9 +12,15 @@ import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class CreateAccountPage implements OnInit {
 
-  newAccountUsers : FormGroup;
+  // variables
+  newAccountUsers: FormGroup;
+  email: string;
+  password: string;
 
-  constructor( private formBuilder : FormBuilder) { 
+  constructor(
+    private formBuilder: FormBuilder,
+    private userManagementService: UserManagementService
+    ) {
     this.newAccountUsers = formBuilder.group({
       email: ['', Validators.compose([Validators.pattern('[a-zA-Z0-9._]+[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}'), Validators.required])],
       password: ['', Validators.compose([Validators.maxLength(20), Validators.minLength(8), Validators.pattern('[a-zA-z0-9!@#$%^&*]*'), Validators.required])],
@@ -22,6 +31,8 @@ export class CreateAccountPage implements OnInit {
   
   logForm(){
     console.log(this.newAccountUsers.value);
+    // register with the email and hash
+    this.userManagementService.registerUser(this.email, Md5.hashStr(this.password));
   }
 
   ngOnInit() {

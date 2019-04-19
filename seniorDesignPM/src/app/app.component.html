@@ -11,7 +11,7 @@
           <ion-button 
           color="medium" 
           style="width:100%;" 
-          [routerLink]="['/home']"
+          [routerLink]="['/members/home']"
           (click)="closeSideMenu()">
             Home
           </ion-button>
@@ -20,7 +20,7 @@
           <ion-button 
           color="medium" 
           style="width:100%;"
-          [routerLink]="['/profile']"
+          [routerLink]="['/members/profile']"
           (click)="closeSideMenu()">
             Profile
           </ion-button>
@@ -37,7 +37,7 @@
           <ion-button 
           color="medium" 
           style="width:100%;"
-          [routerLink]="['/history']"
+          [routerLink]="['/members/history']"
           (click)="closeSideMenu()">
             History
           </ion-button>
@@ -54,8 +54,7 @@
           <ion-button 
           color="medium" 
           style="width:100%;"
-          [routerLink]="['/login']"
-          (click)="closeSideMenu()">
+          (click)="closeAndLogOut()">
             Log Out
           </ion-button>
         </ion-item>

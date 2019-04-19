@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title text-center>Book Now</ion-title>
+    <ion-buttons (click)="dismiss()" slot="primary">
+      <ion-button style="color: #3881ff">Cancel</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h4 text-center>{{carSelection.name}}</h4>
+  <ion-item>
+    <ion-label position="stacked">Pickup Location</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Drop-off Location</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Pick-up Date/Time</ion-label>
+    <ion-input type="date"></ion-input>
+    <ion-input type="time"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Pick-up Date/Time</ion-label>
+    <ion-input type="date"></ion-input>
+    <ion-input type="time"></ion-input>
+  </ion-item>
+</ion-content>
+
+<ion-footer text-center>
+  <ion-button (click)="confirmCar()" color="customMedBlue" [routerLink]="['/members/entertainment']">Confirm</ion-button>
+</ion-footer>

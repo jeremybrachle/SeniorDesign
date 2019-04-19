@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title text-center>Cancel Order?</ion-title>
+      <ion-buttons (click)="dismiss()" slot="primary">
+        <ion-button style="color: #3881ff">Back</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+  Are you sure you want to cancel your order?
+</ion-content>
+
+<ion-footer text-center>
+    <ion-button (click)="dismiss()" color="medium" [routerLink]="['/members/home']">Yes, Cancel Order</ion-button>
+  </ion-footer>

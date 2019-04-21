@@ -8,7 +8,7 @@ import { MenuController } from '@ionic/angular';
 import { AuthenticationService } from './services/authentication.service';
 import { Router } from '@angular/router';
 import { UserManagementService } from './services/user-management.service';
-
+import { CarGenerateService } from './services/car-generate.service';
 
 @Component({
   selector: 'app-root',
@@ -22,20 +22,26 @@ export class AppComponent {
     public menuCtrl: MenuController,
     private authenticationService: AuthenticationService,
     private router: Router,
-    private userManagementService: UserManagementService
+    private userManagementService: UserManagementService,
+    private carGenerateService: CarGenerateService
   ) {
     this.initializeApp();
   }
+
 
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
-      // call the database and get the user data
+      // get the user data
       this.userManagementService.getUsersFromDB();
 
+      // get the car data
+      this.carGenerateService.getCarsFromDB();
 
+      // set the login state at logged out, then subscribe and navigate
+      this.authenticationService.logout();
       this.authenticationService.authenticationState.subscribe(state => {
         if (state) {
           this.router.navigate(['members', 'home']);

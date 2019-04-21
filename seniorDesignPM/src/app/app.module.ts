@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { OrderService } from './services/order.service';
 import { IonicStorageModule } from '@ionic/storage';
 import { UserManagementService } from './services/user-management.service';
+import { CarGenerateService } from './services/car-generate.service';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { UserManagementService } from './services/user-management.service';
     SplashScreen,
     OrderService,
     UserManagementService,
+    CarGenerateService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

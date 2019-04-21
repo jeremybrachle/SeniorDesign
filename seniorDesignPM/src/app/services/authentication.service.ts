@@ -22,6 +22,8 @@ export class AuthenticationService {
     this.plt.ready().then(() => {
       this.checkToken();
     });
+    // set the authenticated state as false immediately
+    this.authenticationState.next(false);
   }
 
   checkToken() {

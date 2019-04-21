@@ -47,7 +47,7 @@ export class ConfirmationPage implements OnInit {
     }
 
     // add cost of car
-    total += this.finalCar.price;
+    total += Number(this.finalCar.pricePerDay);
     return total;
   }
 

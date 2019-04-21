@@ -1,9 +1,11 @@
 export class Car {
     constructor(
         public name: string,
-        public price: number,
+        public pricePerDay: number,
         public defaultImg: string,
-        public allImgArray: Array<string>,
+        public milesIncluded: number,
+        public additionalMileage: number,
+        public securityDeposit: number,
         public pickupTime: Date,
         public pickupLocation: string,
         public dropoffTime: Date,

@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     // initialize as logged out
-    // this.authService.logout();
+    this.authService.logout();
 
     // this.http.get('assets/files/test.txt', {responseType: 'text'}).subscribe(data => console.log(data));
 
@@ -55,6 +55,8 @@ export class LoginPage implements OnInit {
     if (verified != null) {
       this.password = '';
     }
+
+    // this.carGenerateService.parseCarData();
   }
 
 

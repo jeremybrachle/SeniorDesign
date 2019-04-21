@@ -40,7 +40,7 @@ export class AppComponent {
       // get the car data
       this.carGenerateService.getCarsFromDB();
 
-      // set the login state at logged out, then subscribe and navigate
+      // get the authentication state (will be false initially)
       this.authenticationService.logout();
       this.authenticationService.authenticationState.subscribe(state => {
         if (state) {

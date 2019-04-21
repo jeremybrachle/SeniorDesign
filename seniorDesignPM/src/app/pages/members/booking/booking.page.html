@@ -35,36 +35,13 @@
     <div text-center *ngFor="let car of allCars">
         <ion-img src="{{car['defaultImg']}}" (click)="carInfo(car)"></ion-img>
         <h6>{{car['name']}}</h6>
-        <hr color="lightgray">
+        <hr color="lightgray" style="height: 1.5px;">
   
         <ion-toolbar>
-            <p>Price Per Day: <br>${{car['price']}}</p>
+            <p>Price Per Day: <br>${{car['pricePerDay']}}</p>
           <ion-button color="customMedBlue" slot="primary" (click)="bookNow(car)">Reserve</ion-button>
         </ion-toolbar>
     </div>
-
-
-    <!-- <div text-center>
-      <ion-img src="../../../assets/images/vantage.png" (click)="carInfo('ASTON MARTIN VANTAGE')"></ion-img>
-      <h6>ASTON MARTIN VANTAGE</h6>
-      <hr color="lightgray">
-
-      <ion-toolbar>
-          <p>Price Per Day: $799.00</p>
-        <ion-button color="customMedBlue" slot="primary" (click)="bookNow()">Reserve Now</ion-button>
-      </ion-toolbar>
-    </div>
-
-
-    <div text-center>
-        <ion-img src="../../../assets/images/ferrari.png" (click)="carInfo('ASTON MARTIN VANTAGE')"></ion-img>
-        <h6>FERRARI 488</h6>
-        <hr color="lightgray">
-        <ion-toolbar>
-            <p>Price Per Day: $1,499.00</p>
-          <ion-button color="customMedBlue" slot="primary" (click)="bookNow()">Reserve Now</ion-button>
-        </ion-toolbar>
-    </div> -->
   
 
 </div>

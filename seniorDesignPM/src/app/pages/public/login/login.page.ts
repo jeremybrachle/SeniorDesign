@@ -40,7 +40,11 @@ export class LoginPage implements OnInit {
     //   }
     //   );
 
-    this.carGenerateService.parseCarData();
+    // this.carGenerateService.parseCarData();
+    // console.log(this.carGenerateService.getCarsFromDB());
+
+    this.carGenerateService.getRequest();
+    // this.carGenerateService.getCarsFromDB();
   }
 
 

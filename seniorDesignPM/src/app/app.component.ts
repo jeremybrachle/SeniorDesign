@@ -38,7 +38,7 @@ export class AppComponent {
       this.userManagementService.getUsersFromDB();
 
       // get the car data
-      this.carGenerateService.getCarsFromDB();
+      // this.carGenerateService.getCarsFromDB();
 
       // get the authentication state (will be false initially)
       this.authenticationService.logout();

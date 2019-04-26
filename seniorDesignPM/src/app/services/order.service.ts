@@ -56,8 +56,12 @@ export class OrderService {
     // make a hsitory object and add to the array
     let currOrder = new Order(
       currCar,
-      currEntertainment
-    )
+      currEntertainment,
+      null,
+      null,
+      null,
+      null
+    );
     this.myHistory.push(currOrder);
    }
 

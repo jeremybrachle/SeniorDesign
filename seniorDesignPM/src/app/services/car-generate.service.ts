@@ -13,40 +13,35 @@ export class CarGenerateService {
 
   // variables
   textData: String;
+  jsonData: any;
   allCars = new Array;
   connected: Boolean = false;
 
   // pull car data from database
-  getCarsFromDB() {
-    // get text from file that holds car data scraped from site
-    this.http.get('assets/files/out.txt', {responseType: 'text'}
-    ).subscribe(
-      data => {
-        this.textData = data;
-      }
-    );
+  // getCarsFromDB() {
+  //   // get text from file that holds car data scraped from site
+  //   this.http.get('assets/files/out.txt', {responseType: 'text'}
+  //   ).subscribe(
+  //     data => {
+  //       this.textData = data;
+  //     }
+  //   );
+  //   this.http.get('http://localhost:5000/cars', {responseType: 'json'}
+  //   ).subscribe(
+  //     data => {
+  //       // this.connected = true;
+  //       // this.parseCarDataFromJson();
+  //       // console.log('Length of Array: ' + Object.keys(data).length);
+  //       console.log(data);
+  //     }, error => {
+  //       console.log(error);
+  //       // this.parseCarDataFromFile();
+  //     }
+  //   );
+  // }
 
 
-    // call API to get the car data as JSON
-    // but if the json is not attainable for somereason, just read the text file
-
-    
-    this.http.get('http://localhost:5000/cars', {responseType: 'json'}
-    ).subscribe(
-      data => {
-        // this.connected = true;
-        // this.parseCarDataFromJson();
-        // console.log('Length of Array: ' + Object.keys(data).length);
-        console.log(data);
-      }, error => {
-        console.log(error);
-        // this.parseCarDataFromFile();
-      }
-    );
-  
-  }
-
-  async getRequest() {
+  async getCarsFromDB() {
     await this.http.get('http://localhost:5000/cars', {responseType: 'json'}
     ).toPromise().then(
       data => {
@@ -54,7 +49,8 @@ export class CarGenerateService {
         this.connected = true;
         console.log('connection established to api');
         console.log('json parse');
-        this.parseCarDataFromJson();
+        this.jsonData = data;
+        this.parseCarDataFromJson(this.jsonData);
         // console.log('Length of Array: ' + Object.keys(data).length);
         // console.log(data);
       }, error => {
@@ -62,7 +58,6 @@ export class CarGenerateService {
         // this.parseCarDataFromFile();
       }
     );
-
     // if no connection is made, parse the textfile
     if (!this.connected) {
       console.log('no connection found to api');
@@ -75,26 +70,38 @@ export class CarGenerateService {
       console.log('file parse');
       this.parseCarDataFromFile();
     }
-
   }
 
   // check what parsing to use based on the connect
-  parseCarData() {
-    // if connected, parse from json, otherwise, from file
-    if (this.connected === true) {
-      console.log('json');
-      this.parseCarDataFromJson();
-    }
-    else {
-      console.log('file');
-      this.parseCarDataFromFile();
-    }
-  }
+  // parseCarData() {
+  //   // if connected, parse from json, otherwise, from file
+  //   if (this.connected === true) {
+  //     console.log('json');
+  //     this.parseCarDataFromJson();
+  //   }
+  //   else {
+  //     console.log('file');
+  //     this.parseCarDataFromFile();
+  //   }
+  // }
 
 
   // parse the car data from json
-  parseCarDataFromJson() {
-    console.log('yeet');
+  parseCarDataFromJson(jsonText) {
+    // loop over the json array
+    for (let i = 0; i < Object.keys(jsonText).length; i ++) {
+      // make a car object for each car in the json array
+      let currCar = new Car(
+        jsonText[i]['car_name'],
+        jsonText[i]['details']['price'],
+        jsonText[i]['image_url'],
+        jsonText[i]['details']['mileage_included'],
+        jsonText[i]['details']['additional_mileage'],
+        jsonText[i]['details']['security_deposit']
+      );
+      // push to array
+      this.allCars.push(currCar);
+    }
   }
 
   // parse the car data from the file
@@ -115,11 +122,7 @@ export class CarGenerateService {
           eachCarAttr[1],
           eachCarAttr[2],
           eachCarAttr[3],
-          eachCarAttr[5],
-          null,
-          null,
-          null,
-          null
+          eachCarAttr[5]
         );
       // push to array
       this.allCars.push(carOpt);

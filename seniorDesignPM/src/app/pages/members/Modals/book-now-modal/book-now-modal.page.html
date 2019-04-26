@@ -11,27 +11,31 @@
   <h4 text-center>{{carSelection.name}}</h4>
   <ion-item>
     <ion-label position="stacked">Pickup Location</ion-label>
-    <ion-select>
+    <ion-select placeholder="Select Location">
       <ion-select-option>Dallas</ion-select-option>
       <ion-select-option>Houston</ion-select-option>
     </ion-select>
   </ion-item>
   <ion-item>
     <ion-label position="stacked">Drop-off Location</ion-label>
-    <ion-select>
+    <ion-select placeholder="Select Location">
       <ion-select-option>Dallas</ion-select-option>
       <ion-select-option>Houston</ion-select-option>
     </ion-select>
   </ion-item>
   <ion-item>
     <ion-label position="stacked">Pick-up Date/Time</ion-label>
-    <ion-input type="date"></ion-input>
-    <ion-input type="time"></ion-input>
+    <ion-datetime displayFormat="MMM/DD/YYYY" min="2019" placeholder="Select Date"></ion-datetime>
+    <ion-datetime displayFormat="hh:mm A" placeholder="Select Time" minuteValues="00, 30"></ion-datetime>
+    <!-- <ion-input type="date"></ion-input>
+    <ion-input type="time"></ion-input> -->
   </ion-item>
   <ion-item>
-    <ion-label position="stacked">Pick-up Date/Time</ion-label>
-    <ion-input type="date"></ion-input>
-    <ion-input type="time"></ion-input>
+    <ion-label position="stacked">Drop-off Date/Time</ion-label>
+    <ion-datetime displayFormat="MMM/DD/YYYY" min="2019" placeholder="Select Date"></ion-datetime>
+    <ion-datetime displayFormat="hh:mm A" placeholder="Select Time" minuteValues="00, 30"></ion-datetime>
+    <!-- <ion-input type="date"></ion-input>
+    <ion-input type="time"></ion-input> -->
   </ion-item>
 </ion-content>
 

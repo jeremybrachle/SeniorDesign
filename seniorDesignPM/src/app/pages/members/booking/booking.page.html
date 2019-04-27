@@ -34,7 +34,10 @@
 
     <div text-center *ngFor="let car of allCars">
         <ion-img src="{{car['defaultImg']}}" (click)="carInfo(car)"></ion-img>
-        <h6>{{car['name']}}</h6>
+        <h6 (click)="carInfo(car)">
+          {{car['name']}}
+          <ion-icon name="information-circle-outline" style="float: right;"></ion-icon>
+        </h6>
         <hr color="lightgray" style="height: 1.5px;">
   
         <ion-toolbar>

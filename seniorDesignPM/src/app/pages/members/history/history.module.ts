@@ -6,9 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { HistoryPage } from './history.page';
-// import { SharedHeaderModule } from '../../shared-header/shared-header.module';
 import { SharedHeaderModule } from '../../../shared-header/shared-header.module';
-
+import { HistoryItemModalPage } from '../Modals/history-item-modal/history-item-modal.page';
 
 const routes: Routes = [
   {
@@ -25,6 +24,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     SharedHeaderModule
   ],
-  declarations: [HistoryPage]
+  declarations: [HistoryPage, HistoryItemModalPage],
+  entryComponents: [HistoryItemModalPage]
 })
 export class HistoryPageModule {}

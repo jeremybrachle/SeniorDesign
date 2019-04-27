@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'car-info-modal', loadChildren: '../members/Modals/car-info-modal/car-info-modal.module#CarInfoModalPageModule' },
   { path: 'confirmation', loadChildren: '../members/confirmation/confirmation.module#ConfirmationPageModule' },
   { path: 'accommodations-modal', loadChildren: '../members/Modals/accommodations-modal/accommodations-modal.module#AccommodationsModalPageModule' },
-  { path: 'history', loadChildren: '../members/history/history.module#HistoryPageModule' }
+  { path: 'history', loadChildren: '../members/history/history.module#HistoryPageModule' },
+  { path: 'history-item-modal', loadChildren: './Modals/history-item-modal/history-item-modal.module#HistoryItemModalPageModule' }
 ];
  
 @NgModule({

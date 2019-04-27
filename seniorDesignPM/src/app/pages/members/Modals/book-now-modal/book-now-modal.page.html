@@ -8,32 +8,53 @@
 </ion-header>
 
 <ion-content padding>
+
+  <!-- careful with using forms... -->
+    <!-- <form (ngSubmit)="confirmCar()">
+        <ion-datetime [(ngModel)]="this.logistics.pickUpTime" displayFormat="MMM D, YYYY" min="2019" placeholder="Select Date"></ion-datetime>
+      <ion-button type="submit">confirm logistics</ion-button>
+    </form> -->
+
+
+    
+    <!-- <ion-datetime [(ngModel)]="dateString" displayFormat="h:mm A" placeholder="Select Time" minuteValues="00, 30"></ion-datetime>
+    <ion-button (click)="testDate()">confirm logistics</ion-button> -->
+
+
+
+    
   <h4 text-center>{{carSelection.name}}</h4>
   <ion-item>
     <ion-label position="stacked">Pickup Location</ion-label>
-    <ion-select placeholder="Select Location">
+    <ion-select [(ngModel)]="pickUpLocation" placeholder="Select Location">
       <ion-select-option>Dallas</ion-select-option>
       <ion-select-option>Houston</ion-select-option>
     </ion-select>
   </ion-item>
   <ion-item>
     <ion-label position="stacked">Drop-off Location</ion-label>
-    <ion-select placeholder="Select Location">
+    <ion-select [(ngModel)]="dropOffLocation" placeholder="Select Location">
       <ion-select-option>Dallas</ion-select-option>
       <ion-select-option>Houston</ion-select-option>
     </ion-select>
   </ion-item>
   <ion-item>
-    <ion-label position="stacked">Pick-up Date/Time</ion-label>
-    <ion-datetime displayFormat="MMM/DD/YYYY" min="2019" placeholder="Select Date"></ion-datetime>
-    <ion-datetime displayFormat="hh:mm A" placeholder="Select Time" minuteValues="00, 30"></ion-datetime>
+    <ion-label position="stacked">
+      <ion-icon name="calendar" style="float: right;"></ion-icon>
+      Pick-up Date/Time
+    </ion-label>
+    <ion-datetime [(ngModel)]="pickUpDate" displayFormat="MMM D, YYYY" min="2019" placeholder="Select Date"></ion-datetime>
+    <ion-datetime [(ngModel)]="pickUpTime" displayFormat="h:mm A" placeholder="Select Time" minuteValues="00, 30"></ion-datetime>
     <!-- <ion-input type="date"></ion-input>
     <ion-input type="time"></ion-input> -->
   </ion-item>
   <ion-item>
-    <ion-label position="stacked">Drop-off Date/Time</ion-label>
-    <ion-datetime displayFormat="MMM/DD/YYYY" min="2019" placeholder="Select Date"></ion-datetime>
-    <ion-datetime displayFormat="hh:mm A" placeholder="Select Time" minuteValues="00, 30"></ion-datetime>
+    <ion-label position="stacked">
+      <ion-icon name="calendar" style="float: right;"></ion-icon>
+      Drop-off Date/Time
+    </ion-label>
+    <ion-datetime [(ngModel)]="dropOffDate" displayFormat="MMM D, YYYY" min="2019" placeholder="Select Date"></ion-datetime>
+    <ion-datetime [(ngModel)]="dropOffTime" displayFormat="h:mm A" placeholder="Select Time" minuteValues="00, 30"></ion-datetime>
     <!-- <ion-input type="date"></ion-input>
     <ion-input type="time"></ion-input> -->
   </ion-item>

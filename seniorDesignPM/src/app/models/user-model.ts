@@ -4,3 +4,6 @@ export class User {
         public password: string
     ) { }
 }
+
+// get everyhing from the profile page, the number of stars also, etc...
+

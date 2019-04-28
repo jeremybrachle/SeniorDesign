@@ -25,14 +25,18 @@
     
   <h4 text-center>{{carSelection.name}}</h4>
   <ion-item>
-    <ion-label position="stacked">Pickup Location</ion-label>
+    <ion-label position="stacked">Pickup Location
+      <ion-icon name="pin" style="float: right;"></ion-icon>
+    </ion-label>
     <ion-select [(ngModel)]="pickUpLocation" placeholder="Select Location">
       <ion-select-option>Dallas</ion-select-option>
       <ion-select-option>Houston</ion-select-option>
     </ion-select>
   </ion-item>
   <ion-item>
-    <ion-label position="stacked">Drop-off Location</ion-label>
+    <ion-label position="stacked">Drop-off Location
+      <ion-icon name="pin" style="float: right;"></ion-icon>
+    </ion-label>
     <ion-select [(ngModel)]="dropOffLocation" placeholder="Select Location">
       <ion-select-option>Dallas</ion-select-option>
       <ion-select-option>Houston</ion-select-option>
@@ -61,5 +65,5 @@
 </ion-content>
 
 <ion-footer text-center>
-  <ion-button (click)="confirmCar()" color="customMedBlue" [routerLink]="['/members/entertainment']">Confirm</ion-button>
+  <ion-button [disabled]="!pickUpLocation || !dropOffLocation || !pickUpDate || !pickUpTime || !dropOffDate || !dropOffTime" (click)="confirmCar()" color="customMedBlue" [routerLink]="['/members/entertainment']">Confirm</ion-button>
 </ion-footer>

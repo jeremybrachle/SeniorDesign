@@ -22,7 +22,37 @@ export class UserManagementService {
 
   // add a user to the database
   registerUser(username, password) {
-    let newUser = new User(username, password);
+    let newUser = new User(
+      username,
+      password,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+      );
     this.allUsers.push(newUser);
   }
 }

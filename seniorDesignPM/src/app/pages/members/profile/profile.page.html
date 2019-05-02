@@ -20,7 +20,7 @@
           <!-- first name -->
           <ion-item>
             <ion-label> First Name: </ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input [(ngModel)]="firstName" type="text"></ion-input>
           </ion-item>
 
           <!-- last name -->
@@ -116,7 +116,7 @@
             <ion-label> Zip/Postal Code: </ion-label>
             <ion-input type="text"></ion-input>
           </ion-item>
-          <ion-button color="customDarkGrey">Confirm Page 1</ion-button>
+          <ion-button color="customDarkGrey" (click)="confirmPage1()">Confirm Page 1</ion-button>
       </ion-list>
   </ion-slide>
 

@@ -35,10 +35,10 @@ export class AppComponent {
       this.splashScreen.hide();
 
       // get the user data
-      this.userManagementService.getUsersFromDB();
+      // this.userManagementService.getUsersFromDB();
 
       // get the car data
-      // this.carGenerateService.getCarsFromDB();
+      this.carGenerateService.getCarsFromDB();
 
       // get the authentication state (will be false initially)
       this.authenticationService.logout();

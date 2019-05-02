@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { CreateAccountPage } from './create-account.page';
+import { CreateAccountSuccessModalPage } from '../Modals/create-account-success-modal/create-account-success-modal.page';
+import { CreateAccountFailureModalPage } from '../Modals/create-account-failure-modal/create-account-failure-modal.page';
 
 const routes: Routes = [
   {
@@ -22,6 +24,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [CreateAccountPage]
+  declarations: [CreateAccountPage, CreateAccountSuccessModalPage, CreateAccountFailureModalPage],
+  entryComponents: [CreateAccountSuccessModalPage, CreateAccountFailureModalPage]
 })
 export class CreateAccountPageModule {}

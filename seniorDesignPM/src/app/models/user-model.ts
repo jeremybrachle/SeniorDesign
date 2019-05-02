@@ -29,8 +29,7 @@ export class User {
         public insuraneExp: string,
         public insurancePhone: number,
         public insuranceContact: string,
-        public policy: number,
-        public orderHistory: Order[]
+        public insurancePolicy: number
     ) { }
 }
 

@@ -13,7 +13,9 @@ const routes: Routes = [
     path: 'members',
     canActivate: [AuthGuard],
     loadChildren: '../app/pages/members/member-routing.module#MemberRoutingModule'
-  },
+  },  { path: 'create-account-success-modal', loadChildren: './pages/public/Modals/create-account-success-modal/create-account-success-modal.module#CreateAccountSuccessModalPageModule' },
+  { path: 'create-account-failure-modal', loadChildren: './pages/public/Modals/create-account-failure-modal/create-account-failure-modal.module#CreateAccountFailureModalPageModule' },
+
 
   // { path: 'home', loadChildren: '../app/pages/home/home.module#HomePageModule' },
   // { path: 'booking', loadChildren: '../app/pages/booking/booking.module#BookingPageModule' },

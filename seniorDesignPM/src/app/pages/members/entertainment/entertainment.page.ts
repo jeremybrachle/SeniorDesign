@@ -6,9 +6,6 @@ import { SportsConcertsModalPage } from '../Modals/sports-concerts-modal/sports-
 import { ExperiencesModalPage } from '../Modals/experiences-modal/experiences-modal.page';
 import { ConfirmCancelPage } from './../Modals/confirm-cancel/confirm-cancel.page';
 import { NightLifeModalPage } from '../Modals/night-life-modal/night-life-modal.page';
-// import { EntertainmentItem } from './../../models/entertainment-item-model';
-// import { EntertainmentCart } from './../../models/entertainment-cart-model';
-// import { OrderService } from '../../services/order.service';
 import { EntertainmentItem } from '../../../models/entertainment-item-model';
 import { EntertainmentCart } from '../../../models/entertainment-cart-model';
 import { OrderService } from '../../../services/order.service';
@@ -79,10 +76,10 @@ export class EntertainmentPage implements OnInit {
 
     // 3. accomodations options
     let accomodationsOpt1 = new EntertainmentItem(
-      'yeet',
-      0.00,
+      'Hotel Crescent Court',
+      300.00,
       'Accommodations',
-      'yeet',
+      'https://s-ec.bstatic.com/images/hotel/max1280x900/155/155186922.jpg',
       false
     );
     this.allAccommodationsOptions.push(accomodationsOpt1);
@@ -106,13 +103,6 @@ export class EntertainmentPage implements OnInit {
       false
     );
     this.allExperiencesOptions.push(experiencesOpt1);
-
-
-
-    // this.customerCart.addToCart(diningOpt1);
-    // this.customerCart.addToCart(diningOpt2);
-    // console.log(this.customerCart);
-    // console.log(this.customerCart.getCartLength());
 
   }
 

@@ -16,7 +16,7 @@ export class User {
         public cardNumber: number,
         public csv: number,
         public cardHolder: string,
-        public expMonth: string,
+        public expMonth: number,
         public expYear: number,
         public billingAddress: string,
         public billingCity: string,

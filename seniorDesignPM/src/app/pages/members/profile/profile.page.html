@@ -26,37 +26,37 @@
           <!-- last name -->
           <ion-item>
             <ion-label floating> Last Name: </ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input [(ngModel)]="lastName" type="text"></ion-input>
           </ion-item>
 
           <!-- phone number -->
           <ion-item>
             <ion-label> Phone: </ion-label>
-            <ion-input type="tel"></ion-input>
+            <ion-input [(ngModel)]="phone" type="tel"></ion-input>
           </ion-item>
 
           <!-- birth date -->
           <ion-item>
             <ion-label> Date of Birth: </ion-label>
-            <ion-datetime display-format="MMMM DD, YYYY" min="1919" max="1994"></ion-datetime>
+            <ion-datetime [(ngModel)]="dob" display-format="MMMM DD, YYYY" min="1919" max="1994"></ion-datetime>
           </ion-item>
 
           <!-- permanent address -->
           <ion-item>
             <ion-label> Address: </ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input [(ngModel)]="address" type="text"></ion-input>
           </ion-item>
 
           <!-- city -->
           <ion-item>
             <ion-label> City: </ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input [(ngModel)]="city" type="text"></ion-input>
           </ion-item>
 
           <!-- state/province -->
           <ion-item>
             <ion-label> State/Province: </ion-label>
-            <ion-select value="TX">
+            <ion-select [(ngModel)]="state" value="TX">
               <ion-select-option value="AL">Alabama</ion-select-option>
               <ion-select-option value="AK">Alaska</ion-select-option>
               <ion-select-option value="AZ">Arizona</ion-select-option>
@@ -114,9 +114,9 @@
           <!-- zip/postal code -->
           <ion-item>
             <ion-label> Zip/Postal Code: </ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input [(ngModel)]="zip" type="text"></ion-input>
           </ion-item>
-          <ion-button color="customDarkGrey" (click)="confirmPage1()">Confirm Page 1</ion-button>
+          <ion-button color="customDarkGrey" (click)="confirmPage1()">Click to Confirm Page 1</ion-button>
       </ion-list>
   </ion-slide>
 
@@ -128,7 +128,7 @@
         <!-- credit card type -->
         <ion-item>
           <ion-label> Credit Card Type: </ion-label>
-          <ion-select>
+          <ion-select [(ngModel)]="this.cardType">
             <ion-select-option value="Visa">Visa</ion-select-option>
             <ion-select-option value="Master Card">Master Card</ion-select-option>
             <ion-select-option value="AmEx">AmEx</ion-select-option>
@@ -138,33 +138,34 @@
         <!-- credit card number -->
         <ion-item>
           <ion-label> Credit Card Number: </ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input [(ngModel)]="this.cardNumber" type="text"></ion-input>
         </ion-item>
 
         <!-- credit card security code -->
         <ion-item>
           <ion-label> Security Code: </ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input [(ngModel)]="this.csv" type="text"></ion-input>
         </ion-item>
 
         <!-- card holder name -->
         <ion-item>
           <ion-label> Card Holder: </ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input [(ngModel)]="this.cardHolder" type="text"></ion-input>
         </ion-item>
 
         <!-- credit card expiration month -->
         <ion-item>
           <ion-label> Expiration Month: </ion-label>
-          <ion-datetime display-format="MMMM"></ion-datetime>
+          <!-- <ion-datetime [(ngModel)]="this.expMonth" display-format="MMMM"></ion-datetime> -->
+          <ion-input [(ngModel)]="this.expMonth" type="text"></ion-input>
         </ion-item>
 
         <!-- credit card expiration year -->
         <ion-item>
           <ion-label> Expiration Year: </ion-label>
-          <ion-datetime display-format="YYYY" min="2019" max="2024"></ion-datetime>
+          <ion-datetime [(ngModel)]="this.expYear" display-format="YYYY" min="2019" max="2024"></ion-datetime>
         </ion-item>
-        <ion-button color="customDarkGrey">Confirm Page 2</ion-button>
+        <ion-button color="customDarkGrey" (click)="confirmPage2()">Click to Confirm Page 2</ion-button>
     </ion-list>
   </ion-slide>
 
@@ -246,7 +247,7 @@
             <ion-input type="text"></ion-input>
           </ion-item>
   
-          <ion-button color="customDarkGrey">Confirm Page 3</ion-button>
+          <ion-button color="customDarkGrey">Click to Confirm Page 3</ion-button>
     </ion-list>
   </ion-slide>
 
@@ -355,12 +356,10 @@
           <ion-label>Policy Number:</ion-label>
           <ion-input type="text"></ion-input>
         </ion-item>
-        <ion-button color="customDarkGrey">Confirm Page 4</ion-button>
+        <ion-button color="customDarkGrey">Click to Confirm Page 4</ion-button>
     </ion-list>
   </ion-slide>
 
-
-  <!-- <button ion-button full color="primary" (click)="save()">Save Information</button> -->
 </ion-slides>
   
 </ion-content>

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user-model';
-import { Md5 } from 'ts-md5/dist/md5';
 import { HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
 
@@ -14,8 +13,8 @@ export class UserManagementService {
   // currently set user
   currUser: User;
 
-  // connection boolean for api
-  connected: Boolean = false;
+  // currently set user id
+  currUserID: number;
 
   constructor(private http: HttpClient) { }
 
@@ -26,9 +25,9 @@ export class UserManagementService {
     // already exist. if so, then return false to signify that the record was not added
 
     // call the API and confirm that there is not a record with this username
-    // otherwise make a new account with the username/password
+    // if unique, then make a new account with the entered username/password
 
-    // set the return variable, y
+    // set the return variable, y, which is set to be the inner return variable, x, by convention of the async function return values
     let y = await this.http.post('http://localhost:5000/register', {'username': username, 'password': password}, {responseType: 'text'}
     ).toPromise().then(
       data => {
@@ -36,60 +35,24 @@ export class UserManagementService {
         // now check the response and see if 1 or 0
         // if 1, then this is a new username and it is thus accepted/created
         if (data === '1') {
-          // console.log('username and password combo accepted');
-
-          // return the value
-          let x = 1;
-          return x;
+          // return the value (1 means the account can be created. x will return to y which is returned to the calling function)
+          // let x = 1;
+          return 1;
         // if 0, then the username already exists, so cannot accept this entry
         } else if (data === '0') {
           // console.log('entry already exists');
-          let x = 0;
-          return x;
+          // let x = 0;
+          return 0;
         }
       }, error => {
         console.log('connection failed to registration API');
         console.error(error);
-        let x = 0;
-        return x;
+        // let x = 0;
+        return 0;
       }
     );
     // return the value from the async function to the API
     return y;
-
-    // let newUser = new User(
-    //   username,
-    //   password,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null,
-    //   null
-    //   );
-
-    // post to database
-    // this.allUsers.push(newUser);
   }
 
   // set the user from the api query
@@ -127,6 +90,8 @@ export class UserManagementService {
     );
     // assign the curr user object to this user
     this.currUser = loggedIn;
+    // set the current user ID which will map to the order history
+    this.currUserID = response[0];
   }
 
   // get the currently set user object
@@ -134,7 +99,51 @@ export class UserManagementService {
     return this.currUser;
   }
 
+  // return the id of the current user
+  getCurrUserID() {
+    return this.currUserID;
+  }
+
   // four functions for setting user attributes
   // each function will PUT to the database and update the entries
+
+  // first slide of updates
+  async updatePage1(firstName, lastName, phone, dob, address, city, state, zip) {
+    console.log('calling api for updating records of first slide');
+    // get the user id
+    let uid = this.getCurrUserID();
+    // call the api endpoint
+    await this.http.put('http://localhost:5000/updatePage1', {'uid': uid, 'firstName': firstName, 'lastName' : lastName, 'phone' : phone, 'dob' : dob, 'address' : address, 'city' : city, 'state' : state, 'zip' : zip}, {responseType: 'text'}
+    ).toPromise().then(
+      data => {
+        console.log('connection established to update page 1 API');
+        console.log(data);
+      }, error => {
+        console.log('connection failed to update page 1 API');
+        console.error(error);
+      }
+    );
+  }
+
+  // second slide of updates
+  async updatePage2(cardType, cardNumber, csv, cardHolder, expMonth, expYear) {
+    console.log('calling api for updating records of second slide');
+    // get the user id
+    let uid = this.getCurrUserID();
+    // call the api endpoint
+    await this.http.put('http://localhost:5000/updatePage2', {'uid': uid, 'cardType': cardType, 'cardNumber' : cardNumber, 'csv' : csv, 'cardHolder' : cardHolder, 'expMonth' : expMonth, 'expYear' : expYear}, {responseType: 'text'}
+    ).toPromise().then(
+      data => {
+        console.log('connection established to update page 2 API');
+        console.log(data);
+      }, error => {
+        console.log('connection failed to update page 2 API');
+        console.error(error);
+      }
+    );
+  }
+
+
+
 
 }

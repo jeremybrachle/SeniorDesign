@@ -143,7 +143,23 @@ export class UserManagementService {
     );
   }
 
-
+// second slide of updates
+async updatePage3(billingAddress, billingCity, billingState, billingZip) {
+  console.log('calling api for updating records of third slide');
+  // get the user id
+  let uid = this.getCurrUserID();
+  // call the api endpoint
+  await this.http.put('http://localhost:5000/updatePage3', {'uid': uid, 'billingAddress': billingAddress, 'billingCity' : billingCity, 'billingState' : billingState, 'billingZip' : billingZip}, {responseType: 'text'}
+  ).toPromise().then(
+    data => {
+      console.log('connection established to update page 3 API');
+      console.log(data);
+    }, error => {
+      console.log('connection failed to update page 3 API');
+      console.error(error);
+    }
+  );
+}
 
 
 }

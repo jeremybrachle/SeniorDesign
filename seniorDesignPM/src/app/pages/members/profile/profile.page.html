@@ -177,17 +177,17 @@
 
           <ion-item>
             <ion-label> Billing Address: </ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input [(ngModel)]="this.billingAddress" type="text"></ion-input>
           </ion-item>
 
           <ion-item>
             <ion-label> City: </ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input [(ngModel)]="this.billingCity" type="text"></ion-input>
           </ion-item>
 
           <ion-item>
             <ion-label> State/Province: </ion-label>
-            <ion-select value="TX">
+            <ion-select [(ngModel)]="this.billingState" value="TX">
               <ion-select-option value="AL">Alabama</ion-select-option>
               <ion-select-option value="AK">Alaska</ion-select-option>
               <ion-select-option value="AZ">Arizona</ion-select-option>
@@ -244,10 +244,10 @@
 
           <ion-item>
             <ion-label> Zip/Postal Code: </ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input [(ngModel)]="this.billingZip" type="text"></ion-input>
           </ion-item>
   
-          <ion-button color="customDarkGrey">Click to Confirm Page 3</ion-button>
+          <ion-button (click)="confirmPage3()" color="customDarkGrey">Click to Confirm Page 3</ion-button>
     </ion-list>
   </ion-slide>
 

@@ -46,7 +46,7 @@ export class ProfilePage implements OnInit {
   insuraneExp: string;
   insurancePhone: number;
   insuranceContact: string;
-  policy: number;
+  insurancePolicy: number;
 
   constructor(private userManagementService: UserManagementService) {}
 
@@ -77,6 +77,14 @@ export class ProfilePage implements OnInit {
     this.billingZip = this.myUser.billingZip;
 
     // page 4
+    this.licNumber = this.myUser.licNumber;
+    this.licExp = this.myUser.licExp;
+    this.licState = this.myUser.licState;
+    this.insuranceCompany = this.myUser.insuranceCompany;
+    this.insuraneExp = this.myUser.insuraneExp;
+    this.insurancePhone = this.myUser.insurancePhone;
+    this.insuranceContact = this.myUser.insuranceContact;
+    this.insurancePolicy = this.myUser.insurancePolicy;
   }
 
 
@@ -141,5 +149,25 @@ confirmPage3() {
   }
 }
 
+// confirm the fourth page of the sliders
+confirmPage4() {
+  // make sure no null data
+  if (this.licNumber == null || this.licExp == null || this.licState == null || this.insuranceCompany == null || this.insuraneExp == null || this.insurancePhone == null || this.insuranceContact == null || this.insurancePolicy ==  null) {
+    console.log('null data, reenter 4');
+  } else {
+    // now that the data is not null, update the object's front end data, then send to the database
+    this.myUser.licNumber = this.licNumber;
+    this.myUser.licExp = this.licExp;
+    this.myUser.licState = this.licState;
+    this.myUser.insuranceCompany = this.insuranceCompany;
+    this.myUser.insuraneExp = this.insuraneExp;
+    this.myUser.insurancePhone = this.insurancePhone;
+    this.myUser.insuranceContact = this.insuranceContact;
+    this.myUser.insurancePolicy = this.insurancePolicy;
+    // write the text entries into the database
+    this.userManagementService.updatePage4(
+      this.licNumber, this.licExp,  this.licState, this.insuranceCompany, this.insuraneExp, this.insurancePhone, this.insuranceContact, this.insurancePolicy);
+  }
+}
 
 }

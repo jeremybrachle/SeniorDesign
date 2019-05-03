@@ -143,7 +143,7 @@ export class UserManagementService {
     );
   }
 
-// second slide of updates
+// third slide of updates
 async updatePage3(billingAddress, billingCity, billingState, billingZip) {
   console.log('calling api for updating records of third slide');
   // get the user id
@@ -161,5 +161,22 @@ async updatePage3(billingAddress, billingCity, billingState, billingZip) {
   );
 }
 
+// fourth slide of updates
+async updatePage4(licNumber, licExp,  licState, insuranceCompany, insuraneExp, insurancePhone, insuranceContact, insurancePolicy) {
+  console.log('calling api for updating records of fourth slide');
+  // get the user id
+  let uid = this.getCurrUserID();
+  // call the api endpoint
+  await this.http.put('http://localhost:5000/updatePage4', {'uid': uid, 'licNumber': licNumber, 'licExp' : licExp, 'licState' : licState, 'insuranceCompany' : insuranceCompany, 'insuranceExp' : insuraneExp, 'insurancePhone' : insurancePhone, 'insuranceContact' : insuranceContact, 'insurancePolicy' : insurancePolicy}, {responseType: 'text'}
+  ).toPromise().then(
+    data => {
+      console.log('connection established to update page 4 API');
+      console.log(data);
+    }, error => {
+      console.log('connection failed to update page 4 API');
+      console.error(error);
+    }
+  );
+}
 
 }

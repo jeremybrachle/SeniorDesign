@@ -259,19 +259,19 @@
         <!-- driver license # -->
         <ion-item>
           <ion-label>Driver License Number:</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input [(ngModel)]="this.licNumber" type="text"></ion-input>
         </ion-item>
 
         <!-- driver license expiration date -->
         <ion-item>
           <ion-label>Driver's License Expiration:</ion-label>
-          <ion-datetime display-format="MM/DD/YYYY" min="2019" max="2023"></ion-datetime>
+          <ion-datetime [(ngModel)]="this.licExp" display-format="MM/DD/YYYY" min="2019" max="2023"></ion-datetime>
         </ion-item>
 
         <!-- driver license state -->
         <ion-item>
           <ion-label>Driver's License State:</ion-label>
-          <ion-select value="TX">
+          <ion-select [(ngModel)]="this.licState" value="TX">
             <ion-select-option value="AL">Alabama</ion-select-option>
             <ion-select-option value="AK">Alaska</ion-select-option>
             <ion-select-option value="AZ">Arizona</ion-select-option>
@@ -330,33 +330,33 @@
          <!-- insurance company -->
         <ion-item>
           <ion-label>Insurance Company:</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input [(ngModel)]="this.insuranceCompany" type="text"></ion-input>
         </ion-item>
 
         <!-- insurance expiration -->
         <ion-item>
           <ion-label>Insurance Expiration:</ion-label>
-          <ion-datetime display-format="MM/DD/YYYY" min="2019" max="2023"></ion-datetime>
+          <ion-datetime [(ngModel)]="this.insuraneExp" display-format="MM/DD/YYYY" min="2019" max="2023"></ion-datetime>
         </ion-item>
 
         <!-- insurance phone -->
         <ion-item>
           <ion-label>Insurance Phone:</ion-label>
-          <ion-input type="tel"></ion-input>
+          <ion-input [(ngModel)]="this.insurancePhone" type="tel"></ion-input>
         </ion-item>
 
         <!-- insurance contact name -->
         <ion-item>
           <ion-label>Insurance Contact:</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input [(ngModel)]="this.insuranceContact" type="text"></ion-input>
         </ion-item>
 
         <!-- insurance policy num -->
         <ion-item>
           <ion-label>Policy Number:</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input [(ngModel)]="this.insurancePolicy" type="text"></ion-input>
         </ion-item>
-        <ion-button color="customDarkGrey">Click to Confirm Page 4</ion-button>
+        <ion-button (click)="confirmPage4()" color="customDarkGrey">Click to Confirm Page 4</ion-button>
     </ion-list>
   </ion-slide>
 
